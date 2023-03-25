@@ -15,18 +15,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
     <script>
-        document.querySelectorAll('.categories').forEach((element) => {
-            element.addEventListener('click', (event) => {
-                event.preventDefault();
-                let categorySlug = event.target.getAttribute('data-slug');
-                let url = new URL(window.location.href);
-                url.searchParams.set('category', categorySlug);
-                window.history.pushState({}, '', url);
-            });
-        });
-    </script>
-    
-    <script>
         const swiper = new Swiper('.swiper', {
             direction: 'horizontal',
             loop: true,

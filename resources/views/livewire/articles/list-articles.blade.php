@@ -1,3 +1,17 @@
+@push('js')
+    <script>
+        document.querySelectorAll('.categories').forEach((element) => {
+            element.addEventListener('click', (event) => {
+                event.preventDefault();
+                let categorySlug = event.target.getAttribute('data-slug');
+                let url = new URL(window.location.href);
+                url.searchParams.set('category', categorySlug);
+                window.history.pushState({}, '', url);
+            });
+        });
+    </script>
+@endpush
+
 <div>
     @livewire('articles.headlines')
 
@@ -137,57 +151,59 @@
 
         <hr>
 
-        <div class="row">
-            <div class="col-md-8">
-                <h4 class="fw-bold text-poppins text-main mb-3">Semua Berita</h4>
-                @foreach ($articles->skip(3) as $article)
-                    <div class="col-md-12 mt-2">
-                        <div class="row articles-card">
+        @if ($articles->count() > 3)
+            <div class="row">
+                <div class="col-md-8">
+                    <h4 class="fw-bold text-poppins text-main mb-3">Semua Berita</h4>
+                    @foreach ($articles->skip(3) as $article)
+                        <div class="col-md-12 mt-2">
                             <div class="row articles-card">
-                                <div class="col-md-7 articles-content">
-                                    {{-- Category --}}
-                                    <a href="" class="fs-md rounded-pill px-3"
-                                        style="
+                                <div class="row articles-card">
+                                    <div class="col-md-7 articles-content">
+                                        {{-- Category --}}
+                                        <a href="" class="fs-md rounded-pill px-3"
+                                            style="
                                             width: fit-content;
                                             background-color: {{ $article->category->background }};
                                             color: {{ $article->category->color }};
                                         ">
-                                        {{ $article->category->name }}
-                                    </a>
+                                            {{ $article->category->name }}
+                                        </a>
 
-                                    {{-- Description --}}
-                                    <a href="{{ route('articles.show', $article->slug) }}" class="mt-5">
-                                        <h5 class="fw-bold articles-title">{{ $article->title }}</h5>
-                                        <p class="text-secondary fs-sm">
-                                            <i class="bi bi-person"></i> {{ $article->user->name }}
-                                            <i class="bi bi-pen ms-2"></i>
-                                            {{ date('d M Y', strtotime($article->created_at)) }}
-                                        </p>
-                                        <div class="text-secondary fs-md">{{ $article->description }}</div>
-                                        <p class="fs-md fw-bold read-more  mt-2 mb-0">
-                                            <span>BACA SELENGKAPNYA</span>
-                                            <i class="bi bi-arrow-right"></i>
-                                        </p>
-                                    </a>
-                                </div>
+                                        {{-- Description --}}
+                                        <a href="{{ route('articles.show', $article->slug) }}" class="mt-5">
+                                            <h5 class="fw-bold articles-title">{{ $article->title }}</h5>
+                                            <p class="text-secondary fs-sm">
+                                                <i class="bi bi-person"></i> {{ $article->user->name }}
+                                                <i class="bi bi-pen ms-2"></i>
+                                                {{ date('d M Y', strtotime($article->created_at)) }}
+                                            </p>
+                                            <div class="text-secondary fs-md">{{ $article->description }}</div>
+                                            <p class="fs-md fw-bold read-more  mt-2 mb-0">
+                                                <span>BACA SELENGKAPNYA</span>
+                                                <i class="bi bi-arrow-right"></i>
+                                            </p>
+                                        </a>
+                                    </div>
 
-                                {{-- Thumbnail --}}
-                                <div class="col-md-5 articles-thumbnail">
-                                    <a href="{{ route('articles.show', $article->slug) }}">
-                                        <div class="articles-image"
-                                            style="background-image: url('{{ $article->thumbnail }}')">
-                                        </div>
-                                    </a>
+                                    {{-- Thumbnail --}}
+                                    <div class="col-md-5 articles-thumbnail">
+                                        <a href="{{ route('articles.show', $article->slug) }}">
+                                            <div class="articles-image"
+                                                style="background-image: url('{{ $article->thumbnail }}')">
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <hr>
-                @endforeach
+                        <hr>
+                    @endforeach
 
-                {{ $articles->links() }}
+                </div>
             </div>
-        </div>
+        @endif
+        {{ $articles->links() }}
     @else
         <div class="row">
             <h3 class="text-main my-3 fw-bold text-center">Berita tidak tersedia</h3>

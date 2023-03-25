@@ -32,16 +32,6 @@ class ListArticles extends Component
 
         $articles = $articles->paginate(5);
 
-        foreach ($articles as $article) {
-            if (str_word_count($article['title']) > 10) {
-                $article['title'] = implode(' ', array_slice(explode(' ', $article['title']), 0, 10)) . '...';
-            }
-
-            if (strlen($article['description']) > 100) {
-                $article['description'] = substr($article['description'], 0, 100) . '...';
-            }
-        }
-
         return view('livewire.articles.list-articles', [
             'articles' => $articles,
             'categories' => Category::limit(5)->get(),
