@@ -1,9 +1,21 @@
 <div>
-    @if ($articles->count())
-        @livewire('articles.headlines')
+    @livewire('articles.headlines')
 
+    <div class="row">
+        <div class="col-md-12 d-flex" style="overflow-x: auto">
+            <div wire:click="setCategory('semua')" data-slug="semua"
+                class="categories @if ($category === 'semua') active @endif rounded-top px-3 fw-bold">Semua</div>
+            @foreach ($categories as $category)
+                <div wire:click="setCategory('{{ $category->slug }}')" data-slug="{{ $category->slug }}"
+                    class="categories @if ($this->category === $category->slug) active @endif rounded-top px-3 fw-bold">
+                    {{ $category->name }}
+                </div>
+            @endforeach
+        </div>
         <hr>
+    </div>
 
+    @if ($articles->count())
         <div class="row">
             <h3 class="fw-bold mb-3 text-poppins text-main">Berita Terbaru</h3>
             <div class="row">
@@ -11,7 +23,7 @@
                     <div class="row articles-card">
                         {{-- Thumbnail --}}
                         <div class="col-md-12">
-                            <a href="">
+                            <a href="{{ route('articles.show', $articles[0]->slug) }}">
                                 <div class="articles-image"
                                     style="background-image: url('{{ $articles[0]->thumbnail }}')">
                                 </div>
@@ -25,7 +37,7 @@
                             </a>
 
                             {{-- Description --}}
-                            <a href="">
+                            <a href="{{ route('articles.show', $articles[0]->slug) }}">
                                 <h5 class="fw-bold articles-title">{{ $articles[0]->title }}</h5>
                                 <p class="text-secondary fs-sm">
                                     <i class="bi bi-person"></i> {{ $articles[0]->user->name }}
@@ -47,7 +59,7 @@
                         <div class="row articles-card">
                             {{-- Thumbnail --}}
                             <div class="col-md-5 articles-thumbnail">
-                                <a href="">
+                                <a href="{{ route('articles.show', $articles[1]->slug) }}">
                                     <div class="articles-image"
                                         style="background-image: url('{{ $articles[1]->thumbnail }}')">
                                     </div>
@@ -65,7 +77,7 @@
                                 </a>
 
                                 {{-- Description --}}
-                                <a href="" class="mt-5">
+                                <a href="{{ route('articles.show', $articles[1]->slug) }}" class="mt-5">
                                     <h5 class="fw-bold articles-title">{{ $articles[1]->title }}</h5>
                                     <p class="text-secondary fs-sm">
                                         <i class="bi bi-person"></i> {{ $articles[1]->user->name }}
@@ -85,7 +97,7 @@
                         <div class="row articles-card mt-3">
                             {{-- Thumbnail --}}
                             <div class="col-md-5 articles-thumbnail">
-                                <a href="">
+                                <a href="{{ route('articles.show', $articles[2]->slug) }}">
                                     <div class="articles-image"
                                         style="background-image: url('{{ $articles[2]->thumbnail }}')">
                                     </div>
@@ -103,7 +115,7 @@
                                 </a>
 
                                 {{-- Description --}}
-                                <a href="" class="mt-5">
+                                <a href="{{ route('articles.show', $articles[2]->slug) }}" class="mt-5">
                                     <h5 class="fw-bold articles-title">{{ $articles[2]->title }}</h5>
                                     <p class="text-secondary fs-sm">
                                         <i class="bi bi-person"></i> {{ $articles[2]->user->name }}
@@ -144,7 +156,7 @@
                                     </a>
 
                                     {{-- Description --}}
-                                    <a href="" class="mt-5">
+                                    <a href="{{ route('articles.show', $article->slug) }}" class="mt-5">
                                         <h5 class="fw-bold articles-title">{{ $article->title }}</h5>
                                         <p class="text-secondary fs-sm">
                                             <i class="bi bi-person"></i> {{ $article->user->name }}
@@ -161,7 +173,7 @@
 
                                 {{-- Thumbnail --}}
                                 <div class="col-md-5 articles-thumbnail">
-                                    <a href="">
+                                    <a href="{{ route('articles.show', $article->slug) }}">
                                         <div class="articles-image"
                                             style="background-image: url('{{ $article->thumbnail }}')">
                                         </div>

@@ -22,6 +22,16 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 70%, rgba(255, 255, 255, 0) 100%);
 }
 
+.categories.active {
+    background-color: var(--main);
+    color: #FFFFFF;
+}
+
+.categories:not(.active):hover {
+    background-color: var(--sky);
+    cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
     .articles-image {
         margin-bottom: 8px;

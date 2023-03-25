@@ -13,18 +13,18 @@ class ArticleController extends Controller
 
     public function show($slug)
     {
-        $article = Article::with(['user:id,name', 'category:id,name'])
+        $article = Article::with(['user', 'category'])
             ->where('slug', $slug)
             ->firstOrFail();
 
-        $user_articles = Article::with(['user:id,name', 'category:id,name'])
+        $user_articles = Article::with(['user', 'category'])
             ->where('user_id', $article->user_id)
             ->where('id', '!=', $article->id)
             ->latest()
             ->limit(2)
             ->get();
 
-        $category_articles = Article::with(['user:id,name', 'category:id,name'])
+        $category_articles = Article::with(['user', 'category'])
             ->where('category_id', $article->category_id)
             ->where('id', '!=', $article->id)
             ->latest()
