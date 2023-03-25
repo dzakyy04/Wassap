@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->string('image')->unique();
+            $table->string('image');
             $table->string('background');
             $table->string('color');
             $table->timestamps();
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('description');
-            $table->string('thumbnail')->unique();
+            $table->string('thumbnail');
             $table->text('body');
             $table->boolean('is_approved')->default(false);
             $table->boolean('is_headline')->default(false);

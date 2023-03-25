@@ -1,0 +1,34 @@
+/* Home */
+@media screen and (max-width: 768px) {
+    .right {
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    .articles-content {
+        margin-top: 10px;
+        order: 2;
+    }
+
+    .articles-thumbnail {
+        order: 1;
+    }
+
+    .col-md-4.sticky-top {
+        position: static !important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .model {
+        height: 200px;
+    }
+
+    .logo-wassap {
+        width: 120px !important;
+    }
+
+    .tagline {
+        font-size: 20px;
+    }
+}

@@ -19,8 +19,8 @@ class CategoryFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'slug' => $this->faker->slug(),
-            'image' => $this->faker->imageUrl($width = 640, $height = 480),
-            'color' => $this->faker->hexcolor(),
+            'image' => 'https://source.unsplash.com/700x300?' . $this->faker->jobTitle(),
+            'color' => '#FFFFFF',
             'background' => $this->faker->hexcolor(),
         ];
     }
