@@ -15,7 +15,7 @@
                 </li>
                 <li class="nav-item rounded px-2">
                     <a class="nav-link text-main {{ Request::segment(1) == 'berita' ? 'active' : '' }}"
-                        href="">Berita</a>
+                        href="{{ route('articles.index') }}">Berita</a>
                 </li>
                 <li class="nav-item rounded px-2">
                     <a class="nav-link text-main" {{ Request::segment(0) == 'kategori' ? 'active' : '' }}
