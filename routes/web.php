@@ -5,6 +5,7 @@ use App\Http\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,7 @@ Route::middleware('auth')->group(function () {
     // logout
     Route::post('/logout', [Login::class, 'logout'])->name('logout');
 });
+
+// Berita
+Route::get('/berita', [ArticleController::class, 'index'])->name('articles.index');
+Route::get('/berita/{slug}', [ArticleController::class, 'show'])->name('articles.show');

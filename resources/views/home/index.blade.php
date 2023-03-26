@@ -36,43 +36,40 @@
                 <h4 class="fw-bold text-poppins mb-3">Berita Terbaru</h4>
                 @foreach ($articles as $article)
                     <div class="col-md-12 mt-2">
-                        <div class="row articles-card align-articles-center">
-                            <div class="row articles-card">
-                                <div class="col-md-7 articles-content">
-                                    {{-- Category --}}
-                                    <a href="" class="fs-md rounded-pill px-3"
-                                        style="
+                        <div class="row articles-card">
+                            <div class="col-md-7 articles-content">
+                                {{-- Category --}}
+                                <a href="" class="fs-md rounded-pill px-3"
+                                    style="
                                             width: fit-content;
                                             background-color: {{ $article->category->background }};
                                             color: {{ $article->category->color }};
                                         ">
-                                        {{ $article->category->name }}
-                                    </a>
+                                    {{ $article->category->name }}
+                                </a>
 
-                                    {{-- Description --}}
-                                    <a href="" class="mt-5">
-                                        <h5 class="fw-bold articles-title">{{ $article->title }}</h5>
-                                        <p class="text-secondary fs-sm">
-                                            <i class="bi bi-person"></i> {{ $article->user->name }}
-                                            <i class="bi bi-pen ms-2"></i>
-                                            {{ date('d M Y', strtotime($article->created_at)) }}
-                                        </p>
-                                        <div class="text-secondary fs-md">{{ $article->description }}</div>
-                                        <p class="fs-md fw-bold read-more  mt-2 mb-0">
-                                            <span>BACA SELENGKAPNYA</span>
-                                            <i class="bi bi-arrow-right"></i>
-                                        </p>
-                                    </a>
-                                </div>
+                                {{-- Description --}}
+                                <a href="">
+                                    <h5 class="fw-bold articles-title">{{ $article->title }}</h5>
+                                    <p class="text-secondary fs-sm">
+                                        <i class="bi bi-person"></i> {{ $article->user->name }}
+                                        <i class="bi bi-pen ms-2"></i>
+                                        {{ date('d M Y', strtotime($article->created_at)) }}
+                                    </p>
+                                    <div class="text-secondary fs-md">{{ $article->description }}</div>
+                                    <p class="fs-md fw-bold read-more  mt-2 mb-0">
+                                        <span>BACA SELENGKAPNYA</span>
+                                        <i class="bi bi-arrow-right"></i>
+                                    </p>
+                                </a>
+                            </div>
 
-                                {{-- Thumbnail --}}
-                                <div class="col-md-5 articles-thumbnail">
-                                    <a href="">
-                                        <div class="articles-image"
-                                            style="background-image: url('{{ $article->thumbnail }}')">
-                                        </div>
-                                    </a>
-                                </div>
+                            {{-- Thumbnail --}}
+                            <div class="col-md-5 articles-thumbnail">
+                                <a href="">
+                                    <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -85,7 +82,7 @@
                 @foreach ($categories->chunk(2) as $chunk)
                     <div class="row my-2">
                         <div class="col-md-12">
-                        @foreach ($chunk as $category)
+                            @foreach ($chunk as $category)
                                 <a href="" class="fs-md rounded-pill px-3 me-1"
                                     style="
                                     width: fit-content;
@@ -94,8 +91,8 @@
                                 ">
                                     {{ $category->name }}
                                 </a>
-                                @endforeach
-                            </div>
+                            @endforeach
+                        </div>
                     </div>
                 @endforeach
             </div>

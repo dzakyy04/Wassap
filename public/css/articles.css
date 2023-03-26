@@ -1,0 +1,40 @@
+.swiper-slide {
+    width: 300px !important;
+}
+
+.headlines {
+    background-position: center;
+    transition: .3s;
+    width: 100%;
+    height: 300px;
+}
+
+.headlines:hover {
+    transition: .3s;
+    background-position: 45% center;
+}
+
+.headlines .desc {
+    min-height: 40%;
+    width: 100%;
+    font-size: 18px;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 70%, rgba(255, 255, 255, 0) 100%);
+}
+
+.categories.active {
+    background-color: var(--main);
+    color: #FFFFFF;
+}
+
+.categories:not(.active):hover {
+    background-color: var(--sky);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .articles-image {
+        margin-bottom: 8px;
+        margin-top: 12px;
+    }
+}

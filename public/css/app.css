@@ -185,11 +185,11 @@ a {
 }
 
 .articles-title {
-    color: var(--main);
+    color: var(--dark);
 }
 
 .articles-title:hover {
-    color: var(--second);
+    color: var(--main);
     transition: .3s;
 }
 
