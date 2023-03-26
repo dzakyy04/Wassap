@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Auth\Login;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -17,4 +18,12 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Auth::routes([
+    'login' => false
+]);
+
+Route::middleware('guest')->group(function () {
+    // Masuk
+    Route::get('/masuk', Login::class)->name('login');
+});
+

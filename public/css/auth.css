@@ -1,0 +1,56 @@
+/* Auth */
+.auth input:not([type="checkbox"]) {
+    background-color: rgba(0, 0, 0, 0) !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid #9DA4A9 !important;
+}
+
+.auth input[type="checkbox"] {
+    box-shadow: none !important;
+}
+
+
+.auth input:focus {
+    border-color: var(--main) !important;
+    color: var(--main) !important;
+}
+
+.auth input.is-invalid {
+    border-color: var(--bs-danger) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .right {
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    .articles-content {
+        margin-top: 10px;
+        order: 2;
+    }
+
+    .articles-image {
+        order: 1;
+    }
+
+    .col-md-4.sticky-top {
+        position: static !important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .model {
+        height: 200px;
+    }
+
+    .logo-wassap {
+        width: 120px !important;
+    }
+
+    .tagline {
+        font-size: 20px;
+    }
+}
