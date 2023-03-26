@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ Auth::routes([
 Route::middleware('guest')->group(function () {
     // Masuk
     Route::get('/masuk', Login::class)->name('login');
+
+    // Daftar
+    Route::get('/daftar', Register::class)->name('register');
 });
 
 Route::middleware('auth')->group(function () {
