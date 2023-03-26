@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Livewire\Auth\Login;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +14,13 @@ use App\Http\Controllers\HomeController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+ */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Auth::routes([
-    'login' => false
+    'login' => false,
+    'logout' => false,
 ]);
 
 Route::middleware('guest')->group(function () {
@@ -27,3 +28,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/masuk', Login::class)->name('login');
 });
 
+Route::middleware('auth')->group(function () {
+    // logout
+    Route::post('/logout', [Login::class, 'logout'])->name('logout');
+});
