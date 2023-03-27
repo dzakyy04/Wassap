@@ -16,7 +16,7 @@
             </a>
             <ul id="berita" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="">
+                    <a href="{{ route('my-articles') }}">
                         <i class="bi bi-circle"></i><span>Semua berita</span>
                     </a>
                 </li>

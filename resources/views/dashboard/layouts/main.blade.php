@@ -22,6 +22,9 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+
+    {{-- CSS Include --}}
+    @stack('css')
 </head>
 
 <body>
@@ -42,7 +45,8 @@
     {{-- Bootstrap --}}
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
-
+    {{-- JS Include --}}
+    @stack('js')
 </body>
 
 </html>
