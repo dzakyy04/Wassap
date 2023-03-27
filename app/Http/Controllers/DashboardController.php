@@ -9,12 +9,12 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $total_news = Article::with(['user', 'category'])->where('user_id', Auth::user()->id)->get();
-        $approved = $total_news->where('is_approved', true);
-        $not_approved = $total_news->where('is_approved', false);
+        $total_articles = Article::with(['user', 'category'])->where('user_id', Auth::user()->id)->get();
+        $approved = $total_articles->where('is_approved', true);
+        $not_approved = $total_articles->where('is_approved', false);
 
         return view('dashboard.index', [
-            'total_news' => $total_news->count(),
+            'total_articles' => $total_articles->count(),
             'approved' => $approved->count(),
             'not_approved' => $not_approved->count(),
         ]);

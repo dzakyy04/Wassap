@@ -19,7 +19,7 @@
                                         <i class="bi bi-newspaper"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>{{ $total_news }}</h6>
+                                        <h6>{{ $total_articles }}</h6>
                                         <span class="text-secondary small pt-1 fw-bold">Berita</span>
                                     </div>
                                 </div>
