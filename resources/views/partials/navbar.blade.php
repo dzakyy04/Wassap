@@ -51,7 +51,7 @@
                             </li>
 
                             <li>
-                                <a href="/" class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                                <a href="{{ route('dashboard') }}" class="dropdown-item d-flex align-items-center" href="users-profile.html">
                                     <i class="bi bi-grid"></i>
                                     <span>Dashboard</span>
                                 </a>
