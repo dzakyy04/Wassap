@@ -1,47 +1,43 @@
 @extends('layouts.app')
 
+@push('css')
+    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+@endpush
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+    <div class="landing-page">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="left col-md-6 text-center">
+                    <img src="{{ asset('img/model.png') }}" class="img-fluid model" alt="model" height="400">
+                </div>
+                <div class="right col-md-6">
+                    <div>
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                Kami telah mengirimkan email, silahkan cek email anda.
+                            </div>
+                        @endif
+                        <img src="{{ asset('img/logo-wassap.png') }}" class="img-fluid" alt="logo wassap" width="200px">
+                        <h2 class="text-main fw-bold text-poppins mt-3">Lupa Kata Sandi</h2>
+                        <div class="mt-3">
+                            <form method="POST" action="{{ route('password.email') }}" class="auth">
+                                @csrf
+                                {{-- Email --}}
+                                <input type="text" class="form-control fs-md mt-3 @error('email') is-invalid @enderror"
+                                    placeholder="Email" name="email" value="{{ old('email') }}" autofocus>
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <div class="invalid-feedback fs-md">
+                                        {{ $message }}
+                                    </div>
                                 @enderror
-                            </div>
-                        </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
+                                <button type="submit" class="btn btn-primary w-100 mt-3">Kirim email</button>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
