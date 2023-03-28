@@ -11,7 +11,7 @@
                 <div class="row">
                     {{-- User --}}
                     <div class="col-xxl-4 col-md-4">
-                        <div class="card info-card blue-card">
+                        <a href="{{ route('my-articles') }}" class="card info-card blue-card">
                             <div class="card-body">
                                 <h5 class="card-title">Berita saya</h5>
                                 <div class="d-flex align-items-center">
@@ -24,11 +24,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <div class="col-xxl-4 col-md-4">
-                        <div class="card info-card green-card">
+                        <a href="{{ route('my-articles.approved') }}" class="card info-card green-card">
                             <div class="card-body">
                                 <h5 class="card-title">Disetujui</h5>
                                 <div class="d-flex align-items-center">
@@ -41,12 +41,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
 
                     <div class="col-xxl-4 col-md-4">
-                        <div class="card info-card yellow-card">
+                        <a href="{{ route('my-articles.not-approved') }}" class="card info-card yellow-card">
                             <div class="card-body">
                                 <h5 class="card-title">Belum Disetujui</h5>
                                 <div class="d-flex align-items-center">
@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     {{-- Admin --}}

@@ -799,6 +799,11 @@ h6 {
 }
 
 /* Info Cards */
+.card.info-card:hover {
+    background: #f6f9ff;
+    transition: .3s;
+}
+
 .dashboard .info-card {
     padding-bottom: 10px;
 }
