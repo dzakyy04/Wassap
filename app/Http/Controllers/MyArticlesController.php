@@ -12,4 +12,8 @@ class MyArticlesController extends Controller
     public function approved() {
         return view('dashboard.my-articles.approved');
     }
+
+    public function not_approved() {
+        return view('dashboard.my-articles.not-approved');
+    }
 }

@@ -26,7 +26,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ route('my-articles.not-approved') }}">
                         <i class="bi bi-circle"></i><span>Belum disetujui</span>
                     </a>
                 </li>
