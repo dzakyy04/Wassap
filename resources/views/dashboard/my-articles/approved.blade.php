@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    @livewire('my-articles.all-articles')
+                    @livewire('my-articles.approved')
                 </div>
             </div>
         </div>

@@ -3,25 +3,25 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="{{ route('dashboard') }}">
+            <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#berita" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Request::segment(2) === 'berita-saya' ? 'active' : 'collapsed' }}" data-bs-target="#berita" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-newspaper"></i>
                 <span>Berita saya</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="berita" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="berita" class="nav-content collapse {{ Request::segment(2) === 'berita-saya' ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{ route('my-articles') }}">
                         <i class="bi bi-circle"></i><span>Semua berita</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ route('my-articles.approved') }}">
                         <i class="bi bi-circle"></i><span>Disetujui</span>
                     </a>
                 </li>

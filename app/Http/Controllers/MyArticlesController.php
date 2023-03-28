@@ -8,4 +8,8 @@ class MyArticlesController extends Controller
     {
         return view('dashboard.my-articles.index');
     }
+
+    public function approved() {
+        return view('dashboard.my-articles.approved');
+    }
 }

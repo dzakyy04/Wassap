@@ -410,38 +410,16 @@ h6 {
     color: #012970;
 }
 
-.header .search-bar {
+.search-bar {
     min-width: 360px;
     padding: 0 20px;
 }
 
-@media (max-width: 1199px) {
-    .header .search-bar {
-        position: fixed;
-        top: 50px;
-        left: 0;
-        right: 0;
-        padding: 20px;
-        box-shadow: 0px 0px 15px 0px rgba(1, 41, 112, 0.1);
-        background: white;
-        z-index: 9999;
-        transition: 0.3s;
-        visibility: hidden;
-        opacity: 0;
-    }
-
-    .header .search-bar-show {
-        top: 60px;
-        visibility: visible;
-        opacity: 1;
-    }
-}
-
-.header .search-form {
+.search-form {
     width: 100%;
 }
 
-.header .search-form input {
+.search-form input {
     border: 0;
     font-size: 14px;
     color: #012970;
@@ -452,21 +430,21 @@ h6 {
     width: 100%;
 }
 
-.header .search-form input:focus,
-.header .search-form input:hover {
+.search-form input:focus,
+.search-form input:hover {
     outline: none;
     box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
     border: 1px solid rgba(1, 41, 112, 0.3);
 }
 
-.header .search-form button {
+.search-form button {
     border: 0;
     padding: 0;
     margin-left: -30px;
     background: none;
 }
 
-.header .search-form button i {
+.search-form button i {
     color: #012970;
 }
 
@@ -701,9 +679,9 @@ h6 {
     align-items: center;
     font-size: 15px;
     font-weight: 600;
-    color: #4154f1;
+    color: #012970;
     transition: 0.3;
-    background: #f6f9ff;
+    background: #fff;
     padding: 10px 15px;
     border-radius: 4px;
 }
@@ -730,6 +708,11 @@ h6 {
 
 .sidebar-nav .nav-link:hover i {
     color: #4154f1;
+}
+
+.sidebar-nav .nav-link.active {
+    color: #4154f1;
+    background: #f6f9ff;
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {

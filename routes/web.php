@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
 
     // Berita Saya
     Route::get('/dashboard/berita-saya', [MyArticlesController::class, 'index'])->name('my-articles');
+    Route::get('/dashboard/berita-saya/disetujui', [MyArticlesController::class, 'approved'])->name('my-articles.approved');
 });
 
 // Berita
