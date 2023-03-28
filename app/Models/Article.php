@@ -6,10 +6,12 @@ use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Article extends Model
+class Article extends Model implements HasMedia
 {
-    use HasFactory;
+    use HasFactory, InteractsWithMedia;
 
     protected $guarded = ['id'];
 
@@ -17,7 +19,7 @@ class Article extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
     public function category()
     {
         return $this->belongsTo(Category::class);

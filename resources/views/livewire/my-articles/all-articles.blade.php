@@ -35,7 +35,7 @@
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->description }}</td>
                         <td>
-                            <img src="{{ $article->thumbnail }}"
+                            <img src="{{ asset('storage/' . $article->thumbnail) }}"
                                 alt="gambar berita" class="img-fluid">
                         </td>
                         <td>{{ $article->category->name }}</td>

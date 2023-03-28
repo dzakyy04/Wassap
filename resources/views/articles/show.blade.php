@@ -16,6 +16,11 @@
             height: 80px;
             margin: 0;
         }
+
+        .body img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 @endpush
 
@@ -37,9 +42,9 @@
                 <p>
                     {{ $article->description }}
                 </p>
-                <img src="{{ $article->thumbnail }}" alt="" class="img-fluid w-100">
+                <img src="{{ asset('storage/' .$article->thumbnail) }}" alt="" class="img-fluid w-100">
                 <div class="body my-3">
-                    {{ $article->body }}
+                    {!! $article->body !!}
                 </div>
             </div>
 

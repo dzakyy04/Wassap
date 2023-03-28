@@ -7,14 +7,16 @@
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
-        </li><!-- End Dashboard Nav -->
+        </li>
 
         <li class="nav-item">
-            <a class="nav-link {{ Request::segment(2) === 'berita-saya' ? 'active' : 'collapsed' }}" data-bs-target="#berita" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Request::segment(2) === 'berita-saya' ? 'active' : 'collapsed' }}"
+                data-bs-target="#berita" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-newspaper"></i>
                 <span>Berita saya</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="berita" class="nav-content collapse {{ Request::segment(2) === 'berita-saya' ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+            <ul id="berita" class="nav-content collapse {{ Request::segment(2) === 'berita-saya' ? 'show' : '' }}"
+                data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{ route('my-articles') }}">
                         <i class="bi bi-circle"></i><span>Semua berita</span>
@@ -31,6 +33,13 @@
                     </a>
                 </li>
             </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link {{ Request::segment(2) == 'tulis-berita' ? 'active' : '' }}" href="{{ route('create-news') }}">
+                <i class="bi bi-pen"></i>
+                <span>Tulis berita</span>
+            </a>
         </li>
 
         <li class="nav-heading">Admin</li>

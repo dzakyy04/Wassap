@@ -1,13 +1,13 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MyArticlesController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\MyArticlesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +46,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/berita-saya', [MyArticlesController::class, 'index'])->name('my-articles');
     Route::get('/dashboard/berita-saya/disetujui', [MyArticlesController::class, 'approved'])->name('my-articles.approved');
     Route::get('/dashboard/berita-saya/belum-disetujui', [MyArticlesController::class, 'not_approved'])->name('my-articles.not-approved');
+    Route::get('/dashboard/tulis-berita', [MyArticlesController::class, 'create'])->name('create-news');
+    Route::post('/dashboard/tulis-berita', [MyArticlesController::class, 'store'])->name('store-news');
+
+    // Upload gambar dari ckeditor
+    Route::post('upload', [MyArticlesController::class, 'uploadImage'])->name('ckeditor.upload');
+
 });
 
 // Berita
