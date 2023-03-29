@@ -17,9 +17,9 @@
             margin: 0;
         }
 
-        .body img {
-            max-width: 100%;
-            height: auto;
+        .container .col-md-8 img {
+            max-height: 300px;
+            width: auto;
         }
     </style>
 @endpush
@@ -34,52 +34,52 @@
                     <i class="bi bi-pen ms-2"></i>
                     {{ date('d M Y', strtotime($article->created_at)) }}
                 </p>
-                <a href="" class="fs-md rounded-pill px-3"
-                    style="width: fit-content; background-color: {{ $article->category->background }}; color: {{ $article->category->color }}; ">
-                    {{ $article->category->name }}
-                </a>
+                <a href="" class="text-main fs-md">Kategori : {{ $article->category->name }}</a>
                 <hr>
                 <p>
                     {{ $article->description }}
                 </p>
-                <img src="{{ asset('storage/' .$article->thumbnail) }}" alt="" class="img-fluid w-100">
+                <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="Gambar {{ $article->title }}" class="img-fluid">
                 <div class="body my-3">
                     {!! $article->body !!}
                 </div>
             </div>
 
             <div class="col-md-4">
-                <h5 class="fw-bold">Berita lainnya oleh {{ $article->user->name }}</h5>
-                @foreach ($user_articles as $article)
-                    <div class="row my-3">
-                        <a href="" class="left-side">
-                            <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
-                            </div>
-                        </a>
-                        <a href="" class="right-side">
-                            <div class="articles-title fw-bold fs-md">{{ $article->title }}</div>
-                        </a>
-                    </div>
-                @endforeach
+                @if ($user_articles->count())
+                    <h5 class="fw-bold">Berita lainnya oleh {{ $article->user->name }}</h5>
+                    @foreach ($user_articles as $article)
+                        <div class="row my-3">
+                            <a href="" class="left-side">
+                                <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
+                                </div>
+                            </a>
+                            <a href="" class="right-side">
+                                <div class="articles-title fw-bold fs-md">{{ $article->title }}</div>
+                            </a>
+                        </div>
+                    @endforeach
+                    <hr>
+                @endif
 
-                <hr>
-
-                <h5 class="fw-bold">Berita lainnya di kategori {{ $article->category->name }}</h5>
-                @foreach ($category_articles as $article)
-                    <div class="row my-3">
-                        <a href="" class="left-side">
-                            <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
-                            </div>
-                        </a>
-                        <a href="" class="right-side d-flex flex-column justify-content-between">
-                            <div class="articles-title fw-bold fs-md">{{ $article->title }}</div>
-                            <p class="text-secondary fs-sm">
-                                <i class="bi bi-pen"></i>
-                                {{ date('d M Y', strtotime($article->created_at)) }}
-                            </p>
-                        </a>
-                    </div>
-                @endforeach
+                @if ($category_articles->count())
+                    <h5 class="fw-bold">Berita lainnya di kategori {{ $article->category->name }}</h5>
+                    @foreach ($category_articles as $article)
+                        <div class="row my-3">
+                            <a href="" class="left-side">
+                                <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
+                                </div>
+                            </a>
+                            <a href="" class="right-side d-flex flex-column justify-content-between">
+                                <div class="articles-title fw-bold fs-md">{{ $article->title }}</div>
+                                <p class="text-secondary fs-sm">
+                                    <i class="bi bi-pen"></i>
+                                    {{ date('d M Y', strtotime($article->created_at)) }}
+                                </p>
+                            </a>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
