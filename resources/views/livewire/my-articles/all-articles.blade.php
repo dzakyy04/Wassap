@@ -2,19 +2,19 @@
     <script>
         function confirmDelete(id) {
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Apakah anda yakin?',
+                text: "Setelah dihapus, data tidak bisa dikembalikan!",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
+                confirmButtonColor: '#033587',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Ya, hapus!'
             }).then((result) => {
                 if (result.isConfirmed) {
                     deleteArticle(id);
                     Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
+                        'Terhapus',
+                        'Data berhasil dihapus',
                         'success'
                     )
                 }
@@ -28,10 +28,10 @@
 @endpush
 
 <div class="card-body table-responsive">
-    <h5 class="card-title">Semua berita saya</h5>
+    <h5 class="card-title">Berita saya</h5>
 
     <div class="mb-3 d-flex justify-content-between">
-        <a href="" class="btn btn-primary col-md-6" style="height: fit-content; width: fit-content">
+        <a href="{{ route('create-news') }}" class="btn btn-primary col-md-6" style="height: fit-content; width: fit-content">
             <i class="bi bi-plus"></i>
             <span>Tulis Berita</span>
         </a>
@@ -47,20 +47,35 @@
     @if ($articles->count())
         <table class="table table-bordered">
             <thead>
-                <tr>
+                <tr class="text-center">
                     <th scope="col" style="width: 50px">No</th>
                     <th scope="col">Judul</th>
                     <th scope="col">Deskripsi</th>
                     <th scope="col">Thumbnail</th>
                     <th scope="col">Kategori</th>
-                    <th scope="col">Status</th>
+                    <th scope="col" style="cursor: pointer;">
+                        <div class="dropdown">
+                            <span class=" dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Status</span>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <span class="dropdown-item" wire:click="$set('status', 'semua')">Semua</span>
+                                </li>
+                                <li>
+                                    <span class="dropdown-item" wire:click="$set('status', '1')">Disetujui</span>
+                                </li>
+                                <li>
+                                    <span class="dropdown-item" wire:click="$set('status', '0')">Belum disetujui</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </th>
                     <th scope="col" style="width: 110px">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($articles as $article)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
+                        <td class="text-center fw-bold">{{ $loop->iteration }}</td>
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->description }}</td>
                         <td>
@@ -68,7 +83,7 @@
                                 class="img-fluid">
                         </td>
                         <td>{{ $article->category->name }}</td>
-                        <td>
+                        <td class="text-center">
                             <span
                                 class="badge {{ $article->is_approved ? 'bg-success' : 'bg-warning' }}">{{ $article->is_approved ? 'Disetujui' : 'Belum disetujui' }}</span>
                         </td>

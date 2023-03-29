@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="col-xxl-4 col-md-4">
-                        <a href="{{ route('my-articles.approved') }}" class="card info-card green-card">
+                        <a href="{{ route('my-articles', ['status' => 'disetujui']) }}" class="card info-card green-card">
                             <div class="card-body">
                                 <h5 class="card-title">Disetujui</h5>
                                 <div class="d-flex align-items-center">
@@ -46,7 +46,7 @@
 
 
                     <div class="col-xxl-4 col-md-4">
-                        <a href="{{ route('my-articles.not-approved') }}" class="card info-card yellow-card">
+                        <a href="{{ route('my-articles', ['status' => 'belum-disetujui']) }}" class="card info-card yellow-card">
                             <div class="card-body">
                                 <h5 class="card-title">Belum Disetujui</h5>
                                 <div class="d-flex align-items-center">

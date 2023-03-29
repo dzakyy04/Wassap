@@ -10,21 +10,29 @@ use Livewire\WithPagination;
 class AllArticles extends Component
 {
     use WithPagination;
-    
+
     protected $paginationTheme = 'bootstrap';
     protected $listeners = ['deleteArticle' => 'delete'];
 
-    public $search = '', $entries = 10, $confirmDelete;
+    public $search = '', $entries = 10, $status = 'semua', $confirmDelete;
 
     public function mount()
     {
         $this->confirmDelete = false;
+        if(request()->input('status') == 'disetujui') {
+            $this->status = 1;
+        } else if(request()->input('status') == 'belum-disetujui') {
+            $this->status = 0;
+        }
     }
 
     public function render()
     {
         $articles = Article::with(['user', 'category'])
             ->where('user_id', Auth::user()->id)
+            ->when($this->status !== 'semua', function ($query) {
+                return $query->where('is_approved', $this->status);
+            })
             ->where(function ($query) {
                 $query->where('title', 'like', '%' . $this->search . '%')
                     ->orWhere('description', 'like', '%' . $this->search . '%');

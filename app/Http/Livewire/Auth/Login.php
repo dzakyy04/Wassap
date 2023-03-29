@@ -33,7 +33,7 @@ class Login extends Component
         }
 
         $request->session()->regenerate();
-        return redirect()->intended('/');
+        return redirect()->intended('/dashboard');
     }
 
     public function logout(Request $request)

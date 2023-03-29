@@ -10,29 +10,10 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link {{ Request::segment(2) === 'berita-saya' ? 'active' : 'collapsed' }}"
-                data-bs-target="#berita" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Request::segment(2) == 'berita-saya' ? 'active' : '' }}" href="{{ route('my-articles') }}">
                 <i class="bi bi-newspaper"></i>
-                <span>Berita saya</span><i class="bi bi-chevron-down ms-auto"></i>
+                <span>Berita saya</span>
             </a>
-            <ul id="berita" class="nav-content collapse {{ Request::segment(2) === 'berita-saya' ? 'show' : '' }}"
-                data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="{{ route('my-articles') }}">
-                        <i class="bi bi-circle"></i><span>Semua berita</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('my-articles.approved') }}">
-                        <i class="bi bi-circle"></i><span>Disetujui</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('my-articles.not-approved') }}">
-                        <i class="bi bi-circle"></i><span>Belum disetujui</span>
-                    </a>
-                </li>
-            </ul>
         </li>
 
         <li class="nav-item">
