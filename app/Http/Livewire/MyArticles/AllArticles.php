@@ -10,9 +10,16 @@ use Livewire\WithPagination;
 class AllArticles extends Component
 {
     use WithPagination;
+    
     protected $paginationTheme = 'bootstrap';
+    protected $listeners = ['deleteArticle' => 'delete'];
 
-    public $search = '', $entries = 10;
+    public $search = '', $entries = 10, $confirmDelete;
+
+    public function mount()
+    {
+        $this->confirmDelete = false;
+    }
 
     public function render()
     {
@@ -24,13 +31,26 @@ class AllArticles extends Component
             })
             ->paginate($this->entries);
 
-        if ($this->search) {
-            $this->resetPage();
-        }
-
         return view('livewire.my-articles.all-articles', [
             'articles' => $articles,
         ]);
+    }
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function delete($id)
+    {
+        Article::find($id)->delete();
+    }
+
+    public function updatedConfirmDelete()
+    {
+        if ($this->confirmDelete) {
+            $this->delete($this->articleId);
+        }
     }
 
 }

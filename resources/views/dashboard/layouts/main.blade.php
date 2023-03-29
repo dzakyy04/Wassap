@@ -45,6 +45,9 @@
     {{-- Bootstrap --}}
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
+    {{-- Sweet Alert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     {{-- JS Include --}}
     @stack('js')
 </body>

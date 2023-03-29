@@ -1,3 +1,32 @@
+@push('js')
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    deleteArticle(id);
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            })
+        }
+
+        function deleteArticle(id) {
+            Livewire.emit('deleteArticle', id);
+        }
+    </script>
+@endpush
+
 <div class="card-body table-responsive">
     <h5 class="card-title">Semua berita saya</h5>
 
@@ -35,23 +64,23 @@
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->description }}</td>
                         <td>
-                            <img src="{{ asset('storage/' . $article->thumbnail) }}"
-                                alt="gambar berita" class="img-fluid">
+                            <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="gambar berita"
+                                class="img-fluid">
                         </td>
                         <td>{{ $article->category->name }}</td>
                         <td>
-                            <span class="badge {{ $article->is_approved ? 'bg-success' : 'bg-warning' }}">{{ $article->is_approved ? 'Disetujui' : 'Belum disetujui' }}</span>
+                            <span
+                                class="badge {{ $article->is_approved ? 'bg-success' : 'bg-warning' }}">{{ $article->is_approved ? 'Disetujui' : 'Belum disetujui' }}</span>
                         </td>
                         <td class="text-center">
-                            <a href="{{ route('articles.show', $article->slug) }}" class="badge bg-info text-white"><i class="bi bi-eye"></i></a>
+                            <a href="{{ route('articles.show', $article->slug) }}" class="badge bg-info text-white"><i
+                                    class="bi bi-eye"></i></a>
                             <a href="/edit" class="badge bg-warning text-white"><i
                                     class="bi bi-pencil-square"></i></a>
-                            <form action="" method="post" class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <button type="submit" class="badge bg-danger border-0"
-                                    onclick="return(alert('Apakah anda yakin?'))"><i class="bi bi-trash3"></i></button>
-                            </form>
+                            <button type="submit" class="badge bg-danger border-0"
+                                onclick="confirmDelete({{ $article->id }})">
+                                <i class="bi bi-trash3"></i>
+                            </button>
                         </td>
                     </tr>
                 @endforeach
