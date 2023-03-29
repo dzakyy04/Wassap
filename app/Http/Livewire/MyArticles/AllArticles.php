@@ -19,9 +19,9 @@ class AllArticles extends Component
     public function mount()
     {
         $this->confirmDelete = false;
-        if(request()->input('status') == 'disetujui') {
+        if (request()->input('status') == 'disetujui') {
             $this->status = 1;
-        } else if(request()->input('status') == 'belum-disetujui') {
+        } else if (request()->input('status') == 'belum-disetujui') {
             $this->status = 0;
         }
     }
@@ -45,6 +45,11 @@ class AllArticles extends Component
     }
 
     public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedStatus()
     {
         $this->resetPage();
     }

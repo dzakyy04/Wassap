@@ -8,6 +8,9 @@
 
     <title>{{ config('app.name') }} - Dashboaard</title>
 
+    {{-- Favicon --}}
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/icon-wassap.svg') }}">
+
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link
