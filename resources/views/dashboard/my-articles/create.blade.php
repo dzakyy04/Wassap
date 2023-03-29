@@ -148,7 +148,6 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Tulis Berita</h5>
-
                         <form action="{{ route('store-news') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             {{-- Title --}}
@@ -199,7 +198,7 @@
                                     <label for="body" class="form-label">Isi Berita</label>
                                     <textarea class="form-control" rows="3" id="body" name="body"></textarea>
                                     @error('body')
-                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        <div class="mt-1" style="font-size: 14px; color:#b02a37">{{ $message }}</div>
                                     @enderror
                                 </div>
 

@@ -23,6 +23,12 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 
+    <style>
+        .swal2-styled.swal2-confirm {
+            background-color: #012970 !important;
+        }
+    </style>
+
     {{-- CSS Include --}}
     @stack('css')
 </head>

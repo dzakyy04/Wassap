@@ -17,7 +17,7 @@ class ArticleFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence($nbWords = 15, $variableNbWords = true),
+            'title' => $this->faker->sentence($nbWords = 8, $variableNbWords = true),
             'slug' => $this->faker->slug(),
             'description' => $this->faker->sentence($nbWords = 20, $variableNbWords = true),
             'thumbnail' => 'https://source.unsplash.com/700x300?' . $this->faker->jobTitle(),

@@ -30,8 +30,21 @@
 <div class="card-body table-responsive">
     <h5 class="card-title">Berita saya</h5>
 
+    @if (session('success'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: '{{ session('success') }}',
+                })
+            });
+        </script>
+    @endif
+
     <div class="mb-3 d-flex justify-content-between">
-        <a href="{{ route('create-news') }}" class="btn btn-primary col-md-6" style="height: fit-content; width: fit-content">
+        <a href="{{ route('create-news') }}" class="btn btn-primary col-md-6"
+            style="height: fit-content; width: fit-content">
             <i class="bi bi-plus"></i>
             <span>Tulis Berita</span>
         </a>
@@ -69,7 +82,7 @@
                             </ul>
                         </div>
                     </th>
-                    <th scope="col" style="width: 110px">Aksi</th>
+                    <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -85,17 +98,19 @@
                         <td>{{ $article->category->name }}</td>
                         <td class="text-center">
                             <span
-                                class="badge {{ $article->is_approved ? 'bg-success' : 'bg-warning' }}">{{ $article->is_approved ? 'Disetujui' : 'Belum disetujui' }}</span>
+                                class="badge {{ $article->is_approved ? 'bg-success' : 'bg-warning' }} w-100">{{ $article->is_approved ? 'Disetujui' : 'Belum disetujui' }}</span>
                         </td>
-                        <td class="text-center">
-                            <a href="{{ route('articles.show', $article->slug) }}" class="badge bg-info text-white"><i
-                                    class="bi bi-eye"></i></a>
-                            <a href="/edit" class="badge bg-warning text-white"><i
-                                    class="bi bi-pencil-square"></i></a>
-                            <button type="submit" class="badge bg-danger border-0"
-                                onclick="confirmDelete({{ $article->id }})">
-                                <i class="bi bi-trash3"></i>
-                            </button>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <a href="{{ route('articles.show', $article->slug) }}"
+                                    class="badge bg-info text-white"><i class="bi bi-eye"></i></a>
+                                <a href="/edit" class="badge bg-warning text-white mx-1"><i
+                                        class="bi bi-pencil-square"></i></a>
+                                <button type="submit" class="badge bg-danger border-0"
+                                    onclick="confirmDelete({{ $article->id }})">
+                                    <i class="bi bi-trash3"></i>
+                                </button>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

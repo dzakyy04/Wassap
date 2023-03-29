@@ -14,16 +14,6 @@ class MyArticlesController extends Controller
         return view('dashboard.my-articles.index');
     }
 
-    public function approved()
-    {
-        return view('dashboard.my-articles.approved');
-    }
-
-    public function not_approved()
-    {
-        return view('dashboard.my-articles.not-approved');
-    }
-
     public function create()
     {
         return view('dashboard.my-articles.create', [
@@ -59,7 +49,8 @@ class MyArticlesController extends Controller
         $validatedData['user_id'] = Auth::user()->id;
 
         Article::create($validatedData);
-        return redirect()->route('my-articles');
+        
+        return redirect()->route('my-articles')->with('success', 'Berita baru berhasil dibuat');;
     }
 
     // Untuk CKEditor
