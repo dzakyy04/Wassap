@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
     // CRUD
     Route::get('/dashboard/tulis-berita', [MyArticlesController::class, 'create'])->name('create-news');
     Route::post('/dashboard/tulis-berita', [MyArticlesController::class, 'store'])->name('store-news');
+    Route::get('/dashboard/{slug}/edit-berita', [MyArticlesController::class, 'edit'])->name('edit-news');
+    Route::post('/dashboard/{slug}/edit-berita', [MyArticlesController::class, 'update'])->name('update-news');
 
     // Upload gambar dari ckeditor
     Route::post('upload', [MyArticlesController::class, 'uploadImage'])->name('ckeditor.upload');

@@ -147,15 +147,15 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Tulis Berita</h5>
-                        <form action="{{ route('store-news') }}" method="post" enctype="multipart/form-data">
+                        <h5 class="card-title">Edit Berita</h5>
+                        <form action="{{ route('update-news', $article->slug) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             {{-- Title --}}
                             <div class="mb-3">
                                 <label for="title" class="form-label">Judul</label>
                                 <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                    name="title" id="title" placeholder="Masukkan judul" value="{{ old('title') }}"
-                                    onchange="slugArticle()">
+                                    name="title" id="title" placeholder="Masukkan judul"
+                                    value="{{ old('title', $article->title) }}" onchange="slugArticle()">
                                 @error('title')
                                     <div class="invalid-feedback">{{ $message }}</p>
                                     @enderror
@@ -166,7 +166,7 @@
                                     <label for="slug" class="form-label">Slug</label>
                                     <input type="text" class="form-control @error('slug') is-invalid @enderror"
                                         name="slug" id="slug" placeholder="Masukkan slug"
-                                        value="{{ old('slug') }}">
+                                        value="{{ old('slug', $article->slug) }}">
                                     @error('slug')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -176,7 +176,7 @@
                                 <div class="mb-3">
                                     <label for="description" class="form-label">Deskripsi</label>
                                     <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
-                                        placeholder="Masukkan deskripsi">{{ old('description') }}</textarea>
+                                        placeholder="Masukkan deskripsi">{{ old('description', $article->description) }}</textarea>
                                     @error('description')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -185,7 +185,8 @@
                                 {{-- Thumbnail --}}
                                 <div class="mb-3">
                                     <label for="thumbnail" class="form-label">Thumbnail</label>
-                                    <img class="img-preview img-fluid mb-3 col-sm-3">
+                                    <img src="{{ asset("storage/$article->thumbnail") }}"
+                                        class="img-preview img-fluid mb-3 col-sm-3 d-block">
                                     <input class="form-control @error('thumbnail') is-invalid @enderror" type="file"
                                         id="thumbnail" name="thumbnail" onchange="previewImage()">
                                     @error('thumbnail')
@@ -196,7 +197,7 @@
                                 {{-- Body --}}
                                 <div class="mb-3">
                                     <label for="body" class="form-label">Isi Berita</label>
-                                    <textarea class="form-control" rows="3" id="body" name="body">{{ old('body') }}</textarea>
+                                    <textarea class="form-control" rows="3" id="body" name="body">{{ old('body', $article->body) }}</textarea>
                                     @error('body')
                                         <div class="mt-1" style="font-size: 14px; color:#b02a37">{{ $message }}</div>
                                     @enderror
@@ -209,7 +210,7 @@
                                         name="category_id">
                                         <option value="" selected disabled>Pilih kategori</option>
                                         @foreach ($categories as $category)
-                                            @if (old('category_id') == $category->id)
+                                            @if (old('category_id', $article->category_id) == $category->id)
                                                 <option value="{{ $category->id }}" selected>{{ $category->name }}
                                                 </option>
                                             @else
@@ -222,7 +223,7 @@
                                     @enderror
                                 </div>
 
-                                <button type="submit" class="btn btn-primary mt-3">Buat Berita</button>
+                                <button type="submit" onclick="" class="btn btn-primary mt-3">Edit Berita</button>
                         </form>
                     </div>
                 </div>

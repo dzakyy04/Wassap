@@ -24,6 +24,12 @@
     </style>
 @endpush
 
+@push('js')
+    <script>
+        $('.body table').addClass('table table-bordered');
+    </script>
+@endpush
+
 @section('content')
     <div class="container">
         <div class="row mt-5">
@@ -39,7 +45,8 @@
                 <p>
                     {{ $article->description }}
                 </p>
-                <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="Gambar {{ $article->title }}" class="img-fluid">
+                <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="Gambar {{ $article->title }}"
+                    class="img-fluid">
                 <div class="body my-3">
                     {!! $article->body !!}
                 </div>

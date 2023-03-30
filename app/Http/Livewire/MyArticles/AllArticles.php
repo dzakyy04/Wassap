@@ -4,6 +4,7 @@ namespace App\Http\Livewire\MyArticles;
 
 use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -56,7 +57,10 @@ class AllArticles extends Component
 
     public function delete($id)
     {
-        Article::find($id)->delete();
+        $article = Article::find($id);
+        Storage::delete($article->thumbnail);
+
+        $article->delete();
     }
 
     public function updatedConfirmDelete()
