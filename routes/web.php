@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
@@ -53,6 +54,10 @@ Route::middleware('auth')->group(function () {
 
     // Upload gambar dari ckeditor
     Route::post('upload', [MyArticlesController::class, 'uploadImage'])->name('ckeditor.upload');
+
+
+    // Admin
+    Route::get('/dashboard/admin/kategori', [CategoryController::class, 'index'])->name('admin.category');
 
 });
 
