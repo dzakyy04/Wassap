@@ -190,7 +190,7 @@
                                     <div class="col-md-5 articles-thumbnail">
                                         <a href="{{ route('articles.show', $article->slug) }}">
                                             <div class="articles-image"
-                                                style="background-image: url('{{ $article->thumbnail }}')">
+                                                style="background-image: url('{{ asset("storage/$article->thumbnail") }}')">
                                             </div>
                                         </a>
                                     </div>

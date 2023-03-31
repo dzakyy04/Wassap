@@ -196,6 +196,8 @@ a {
 .articles-image {
     background-position: center;
     background-size: cover;
+    border-radius: .25rem;
+    overflow: hidden;
     transition: .3s;
     width: 100%;
     height: 200px;
