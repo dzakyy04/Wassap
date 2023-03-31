@@ -32,11 +32,29 @@
         }
     </style>
 
+    {{-- Loader --}}
+    <link rel="stylesheet" href="{{ asset('css/loader.css') }}">
+
     {{-- CSS Include --}}
     @stack('css')
 </head>
 
-<body>
+<body">
+    <!-- ======= Loader ======= -->
+    <div class="loading overlay">
+        <div class="loadingio-spinner-double-ring-45u0ca26v7n">
+            <div class="ldio-vfewod972nj">
+                <div></div>
+                <div></div>
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ======= Navbar ======= -->
     @include('dashboard.layouts.navbar')
@@ -56,6 +74,9 @@
 
     {{-- Sweet Alert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {{-- Loader --}}
+    <script src="{{ asset('js/loader.js') }}"></script>
 
     {{-- JS Include --}}
     @stack('js')

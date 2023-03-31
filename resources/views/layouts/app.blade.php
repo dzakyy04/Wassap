@@ -16,11 +16,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     {{-- App CSS --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+    {{-- Loader CSS --}}
+    <link rel="stylesheet" href="{{ asset('css/loader.css') }}">
     @stack('css')
 </head>
 
 <body>
+    <div class="loading overlay">
+        <div class="loadingio-spinner-double-ring-45u0ca26v7n">
+            <div class="ldio-vfewod972nj">
+                <div></div>
+                <div></div>
+                <div>
+                    <div></div>
+                </div>
+                <div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     @include('partials.navbar')
 
     <main>
@@ -34,6 +50,8 @@
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     {{-- Bootsrap js --}}
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    {{-- Loader --}}
+    <script src="{{ asset('js/loader.js') }}"></script>
 
     @stack('js')
 </body>
