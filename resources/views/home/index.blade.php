@@ -39,7 +39,7 @@
                         <div class="row articles-card">
                             <div class="col-md-7 articles-content">
                                 {{-- Category --}}
-                                <a href="" class="fs-md rounded-pill px-3"
+                                <a href="" class="badge fs-md rounded-pill px-3"
                                     style="
                                             width: fit-content;
                                             background-color: {{ $article->category->background }};
@@ -79,22 +79,20 @@
             </div>
             <div class="col-md-4 sticky-top" style="height: fit-content; top: 1rem">
                 <h5 class="fw-bold text-poppins">Temukan lebih banyak hal yang penting bagi Anda</h5>
-                @foreach ($categories->chunk(2) as $chunk)
-                    <div class="row my-2">
-                        <div class="col-md-12">
-                            @foreach ($chunk as $category)
-                                <a href="" class="fs-md rounded-pill px-3 me-1"
-                                    style="
+                <div class="row my-2">
+                    <div class="col-md-12">
+                        @foreach ($categories as $category)
+                            <a href="" class="badge fs-md rounded-pill px-3 my-1"
+                                style="
                                     width: fit-content;
                                     background-color: {{ $category->background }};
                                     color: {{ $category->color }};
                                 ">
-                                    {{ $category->name }}
-                                </a>
-                            @endforeach
-                        </div>
+                                {{ $category->name }}
+                            </a>
+                        @endforeach
                     </div>
-                @endforeach
+                </div>
             </div>
         </div>
     </div>

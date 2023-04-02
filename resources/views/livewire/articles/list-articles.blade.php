@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-md-12 mt-2">
                             {{-- Category --}}
-                            <a href="" class="fs-md rounded-pill px-3"
+                            <a href="" class="badge fs-md rounded-pill px-3"
                                 style="width: fit-content; background-color: {{ $articles[0]->category->background }}; color: {{ $articles[0]->category->color }};">
                                 {{ $articles[0]->category->name }}
                             </a>
@@ -81,7 +81,7 @@
                             </div>
                             <div class="col-md-7 articles-content">
                                 {{-- Category --}}
-                                <a href="" class="fs-md rounded-pill px-3"
+                                <a href="" class="badge fs-md rounded-pill px-3"
                                     style="
                                             width: fit-content;
                                             background-color: {{ $articles[1]->category->background }};
@@ -119,7 +119,7 @@
                             </div>
                             <div class="col-md-7 articles-content">
                                 {{-- Category --}}
-                                <a href="" class="fs-md rounded-pill px-3"
+                                <a href="" class="badge fs-md rounded-pill px-3"
                                     style="
                                             width: fit-content;
                                             background-color: {{ $articles[2]->category->background }};
@@ -161,7 +161,7 @@
                                 <div class="row articles-card">
                                     <div class="col-md-7 articles-content">
                                         {{-- Category --}}
-                                        <a href="" class="fs-md rounded-pill px-3"
+                                        <a href="" class="badge fs-md rounded-pill px-3"
                                             style="
                                             width: fit-content;
                                             background-color: {{ $article->category->background }};

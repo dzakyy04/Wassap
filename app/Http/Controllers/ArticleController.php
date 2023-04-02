@@ -17,6 +17,12 @@ class ArticleController extends Controller
             ->where('slug', $slug)
             ->firstOrFail();
 
+        if (!$article->is_approved) {
+            if(auth()->user()-> id != $article->user->id) {
+                abort('403');
+            }
+        }
+
         $user_articles = Article::with(['user', 'category'])
             ->where('user_id', $article->user_id)
             ->where('id', '!=', $article->id)

@@ -79,7 +79,7 @@
                             <img src="{{ $category->image }}" alt="gambar kategori" class="img-fluid">
                         </td>
                         <td>
-                            <span href="" class="badge fs-md rounded-pill px-3"
+                            <span class="badge fs-md rounded-pill px-3"
                                 style="width: fit-content; background-color: {{ $category->background }}; color: {{ $category->color }};">
                                 {{ $category->name }}
                             </span>

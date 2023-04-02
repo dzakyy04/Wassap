@@ -21,6 +21,21 @@
             max-height: 300px;
             width: auto;
         }
+
+        .user-name {
+            color: var(--main);
+            font-weight: bold;
+        }
+
+        .user-name:hover {
+            color: var(--second);
+            transition: .3s;
+        }
+
+        .photo-user {
+            width: 4rem;
+            height: 4rem;
+        }
     </style>
 @endpush
 
@@ -34,17 +49,21 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-8">
-                <h2 class="fw-bold">{{ $article->title }}</h2>
-                <p class="text-secondary fs-sm">
-                    <i class="bi bi-person"></i> {{ $article->user->name }}
-                    <i class="bi bi-pen ms-2"></i>
-                    {{ date('d M Y', strtotime($article->created_at)) }}
-                </p>
-                <a href="" class="text-main fs-md">Kategori : {{ $article->category->name }}</a>
-                <hr>
-                <p>
+                <h1 class="fw-bold">{{ $article->title }}</h1>
+                <p class="fs-5">
                     {{ $article->description }}
                 </p>
+                <div class="d-flex align-items-center">
+                    <img src="{{ $article->user->profile_picture }}" alt="Foto {{ $article->user->username }}"
+                        class="img-fluid rounded-circle photo-user">
+                    <div class="ms-2">
+                        <div class="text-secondary">Oleh <a href="" class="user-name">{{ $article->user->name }}</a></div>
+                        <div class="text-secondary fs-md">
+                            {{ date('d M Y H:i:s', strtotime($article->created_at)) }} WIB
+                        </div>
+                    </div>
+                </div>
+                <hr>
                 <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="Gambar {{ $article->title }}"
                     class="img-fluid">
                 <div class="body my-3">
