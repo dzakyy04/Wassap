@@ -164,11 +164,6 @@ a {
     font-weight: bold;
 }
 
-.nav-item:hover {
-    background-color: #eaf0fa;
-    transition: .3s;
-}
-
 .nav-item.login {
     background-color: var(--main);
     color: var(--white);
@@ -177,6 +172,29 @@ a {
 .nav-item.login:hover {
     filter: brightness(1.3);
     transition: .3s;
+}
+
+nav i.bi-search {
+    cursor: pointer;
+}
+
+.search-box {
+    box-shadow: none !important;
+}
+
+.search-box:focus {
+    border: 1px solid var(--main) !important;
+    color: var(--main) !important;
+}
+
+@media screen and (max-width: 992px) {
+    .search-1 {
+        display: block !important;
+    }
+
+    .search-2 {
+        display: none !important;
+    }
 }
 
 .photo {

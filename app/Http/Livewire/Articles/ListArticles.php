@@ -13,16 +13,18 @@ class ListArticles extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $category;
+    public $category, $search;
 
     public function mount(Request $request)
     {
+        $this->search = $request->input('cari', '');
         $this->category = $request->input('category', 'semua');
     }
 
     public function render()
     {
-        $articles = Article::with(['user', 'category'])->where('is_approved', true)->latest();
+        $articles = Article::with(['user', 'category'])->where('is_approved', true)
+            ->latest();
 
         if ($this->category !== 'semua') {
             $articles->whereHas('category', function ($q) {
@@ -30,7 +32,7 @@ class ListArticles extends Component
             });
         }
 
-        $articles = $articles->paginate(5);
+        $articles = $articles->where('title', 'like', '%' . $this->search . '%')->paginate(10);
 
         return view('livewire.articles.list-articles', [
             'articles' => $articles,

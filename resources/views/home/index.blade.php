@@ -15,13 +15,13 @@
                     <div>
                         <img src="{{ asset('img/logo-wassap.png') }}" class="img-fluid logo-wassap" alt="logo wassap"
                             width="200px">
-                        <h2 class="tagline fw-bold text-poppins mt-3">Berita Terkini dan Terpercaya,
+                        <h2 class="tagline fw-bold text-main text-poppins mt-3">Berita Terkini dan Terpercaya,
                             Selalu Update di Tangan Anda!</h2>
                         <div class="mt-3">
-                            <a href="" class="btn btn-primary text-light fw-bold">
+                            <a href="{{ route('articles.index') }}" class="btn btn-primary text-light fw-bold">
                                 Baca Berita
                             </a>
-                            <a href="" class="btn btn-warning text-light fw-bold">
+                            <a href="{{ route('create-news') }}" class="btn btn-warning text-light fw-bold">
                                 Tulis Berita
                             </a>
                         </div>
@@ -49,7 +49,7 @@
                                 </a>
 
                                 {{-- Description --}}
-                                <a href="">
+                                <a href="{{ route('articles.show', $article->slug) }}">
                                     <h5 class="fw-bold articles-title">{{ $article->title }}</h5>
                                     <p class="text-secondary fs-sm">
                                         <i class="bi bi-person"></i> {{ $article->user->name }}
@@ -66,7 +66,7 @@
 
                             {{-- Thumbnail --}}
                             <div class="col-md-5 articles-thumbnail">
-                                <a href="">
+                                <a href="{{ route('articles.show', $article->slug) }}">
                                     <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
                                     </div>
                                 </a>

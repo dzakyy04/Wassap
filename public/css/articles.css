@@ -39,3 +39,14 @@
         margin-top: 12px;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .articles-content {
+        margin-top: 10px;
+        order: 2;
+    }
+
+    .articles-thumbnail {
+        order: 1;
+    }
+}

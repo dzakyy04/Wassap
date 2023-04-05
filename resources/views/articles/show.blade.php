@@ -17,7 +17,7 @@
             margin: 0;
         }
 
-        .container .col-md-8 img {
+        .container .col-md-8 .body img {
             max-height: 300px;
             width: auto;
         }
@@ -33,8 +33,8 @@
         }
 
         .photo-user {
-            width: 4rem;
-            height: 4rem;
+            width: 3.5rem;
+            height: 3.5rem;
         }
     </style>
 @endpush

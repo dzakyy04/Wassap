@@ -39,7 +39,7 @@
     @stack('css')
 </head>
 
-<body">
+<body>
     <!-- ======= Loader ======= -->
     <div class="loading overlay">
         <div class="loadingio-spinner-double-ring-45u0ca26v7n">
