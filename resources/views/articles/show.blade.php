@@ -69,6 +69,12 @@
                 <div class="body my-3">
                     {!! $article->body !!}
                 </div>
+                
+                <hr>
+
+                <div class="comments my-4">
+                    @livewire('articles.comment')
+                </div>
             </div>
 
             <div class="col-md-4">
