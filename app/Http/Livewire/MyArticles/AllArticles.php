@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\MyArticles;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -15,24 +16,34 @@ class AllArticles extends Component
     protected $paginationTheme = 'bootstrap';
     protected $listeners = ['deleteArticle' => 'delete'];
 
-    public $search = '', $entries = 10, $status = 'semua', $confirmDelete;
+    public $search = '', $entries = 10, $status = 'semua', $category = 'semua', $confirmDelete;
 
     public function mount()
     {
         $this->confirmDelete = false;
+
         if (request()->input('status') == 'disetujui') {
             $this->status = 1;
         } else if (request()->input('status') == 'belum-disetujui') {
             $this->status = 0;
+        }
+
+        if(request()->input('category')) {
+            $this->category = request()->input('category');
         }
     }
 
     public function render()
     {
         $articles = Article::with(['user', 'category'])
-            ->where('user_id', Auth::user()->id)
+        ->where('user_id', Auth::user()->id)
             ->when($this->status !== 'semua', function ($query) {
                 return $query->where('is_approved', $this->status);
+            })
+            ->when($this->category !== 'semua', function ($query) {
+                return $query->whereHas('category', function ($query) {
+                    $query->where('slug', $this->category);
+                });
             })
             ->where(function ($query) {
                 $query->where('title', 'like', '%' . $this->search . '%')
@@ -42,8 +53,11 @@ class AllArticles extends Component
 
         return view('livewire.my-articles.all-articles', [
             'articles' => $articles,
+            'categories' => Category::get()
         ]);
     }
+
+
 
     public function updatingSearch()
     {

@@ -10,7 +10,7 @@
             <div class="row align-items-center">
                 <div class="left col-md-6 text-center">
                     <img src="{{ asset('img/model.png') }}" class="img-fluid model" alt="model" height="400">
-                </div>
+                    </div>
                 <div class="right col-md-6">
                     <div>
                         <img src="{{ asset('img/logo-wassap.png') }}" class="img-fluid logo-wassap" alt="logo wassap"

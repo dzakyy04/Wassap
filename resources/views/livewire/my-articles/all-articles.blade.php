@@ -65,7 +65,21 @@
                     <th scope="col">Judul</th>
                     <th scope="col">Deskripsi</th>
                     <th scope="col">Thumbnail</th>
-                    <th scope="col">Kategori</th>
+                    <th scope="col" style="cursor: pointer;">
+                        <div class="dropdown">
+                            <span class=" dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Kategori</span>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <span class="dropdown-item" wire:click="$set('category', 'semua')">Semua</span>
+                                </li>
+                                @foreach ($categories as $category)
+                                    <li>
+                                        <span class="dropdown-item" wire:click="$set('category', '{{ $category->slug }}')">{{ $category->name }}</span>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </th>
                     <th scope="col" style="cursor: pointer;">
                         <div class="dropdown">
                             <span class=" dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Status</span>
