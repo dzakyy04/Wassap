@@ -36,13 +36,24 @@
             width: 3.5rem;
             height: 3.5rem;
         }
+
+        .comment-menu {
+            cursor: pointer;
+        }
+
+        .comment-menu:hover {
+            color: #0a58ca!important;
+            transition: .3s;
+        }
     </style>
+    @livewireStyles
 @endpush
 
 @push('js')
     <script>
         $('.body table').addClass('table table-bordered');
     </script>
+    @livewireScripts
 @endpush
 
 @section('content')
@@ -57,7 +68,8 @@
                     <img src="{{ $article->user->profile_picture }}" alt="Foto {{ $article->user->username }}"
                         class="img-fluid rounded-circle photo-user">
                     <div class="ms-2">
-                        <div class="text-secondary">Oleh <a href="" class="user-name">{{ $article->user->name }}</a></div>
+                        <div class="text-secondary">Oleh <a href="" class="user-name">{{ $article->user->name }}</a>
+                        </div>
                         <div class="text-secondary fs-md">
                             {{ date('d M Y H:i:s', strtotime($article->created_at)) }} WIB
                         </div>
@@ -69,11 +81,11 @@
                 <div class="body my-3">
                     {!! $article->body !!}
                 </div>
-                
+
                 <hr>
 
                 <div class="comments my-4">
-                    @livewire('articles.comment')
+                    @livewire('articles.comment', ['id' => $article->id])
                 </div>
             </div>
 
