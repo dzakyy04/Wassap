@@ -12,17 +12,41 @@
 @endpush
 
 @push('js')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $('.body table').addClass('table table-bordered');
     </script>
     @livewireScripts
     <script>
         Livewire.on('comment_store', commentId => {
-            let scroll = document.getElementById('comment-' + commentId);
-            scroll.scrollIntoView({
-                behavior: 'smooth'
-            }, true);
-        })
+            Swal.fire(
+                'Berhasil',
+                'Komentar berhasil ditambahkan',
+                'success'
+            ).then(() => {
+                setTimeout(() => {
+                    let scroll = document.getElementById('comment-' + commentId);
+                    scroll.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }, 500);
+            });
+        });
+
+        Livewire.on('comment_edit', commentId => {
+            Swal.fire(
+                'Berhasil',
+                'Komentar berhasil diedit',
+                'success'
+            ).then(() => {
+                setTimeout(() => {
+                    let scroll = document.getElementById('comment-' + commentId);
+                    scroll.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }, 500);
+            });
+        });
     </script>
 @endpush
 

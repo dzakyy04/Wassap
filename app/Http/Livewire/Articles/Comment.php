@@ -68,7 +68,7 @@ class Comment extends Component
         ]);
 
         if ($comment) {
-            $this->emit('comment_store', $this->edit_comment_id);
+            $this->emit('comment_edit', $this->edit_comment_id);
             $this->body = NULL;
             $this->edit_comment_id = NULL;
         } else {

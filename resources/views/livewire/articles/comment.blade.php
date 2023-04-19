@@ -1,5 +1,4 @@
 @push('js')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function confirmDelete(id) {
             Swal.fire({
@@ -14,8 +13,8 @@
                 if (result.isConfirmed) {
                     deleteComment(id);
                     Swal.fire(
+                        'Berhasil',
                         'Komentar berhasil dihapus',
-                        'Terhapus',
                         'success'
                     )
                 }
@@ -29,7 +28,7 @@
 @endpush
 
 <div>
-    <h4>Komentar ({{ $total_comments }})</h4>
+    <h4><i class="bi bi-chat"></i> Komentar ({{ $total_comments }})</h4>
     @auth
         <form wire:submit.prevent="store" class="mb-4">
             <textarea wire:model.defer="body" class="form-control @error('body')
