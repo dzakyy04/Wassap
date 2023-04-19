@@ -15,7 +15,7 @@
                     <div>
                         <img src="{{ asset('img/logo-wassap.png') }}" class="img-fluid logo-wassap" alt="logo wassap"
                             width="200px">
-                        <h2 class="tagline fw-bold text-main text-poppins mt-3">Berita Terkini dan Terpercaya,
+                        <h2 class="tagline fw-bold text-poppins mt-3">Berita Terkini dan Terpercaya,
                             Selalu Update di Tangan Anda!</h2>
                         <div class="mt-3">
                             <a href="{{ route('articles.index') }}" class="btn btn-primary text-light fw-bold">

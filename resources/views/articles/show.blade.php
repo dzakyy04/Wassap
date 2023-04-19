@@ -2,48 +2,10 @@
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('css/articles.css') }}">
-
     <style>
-        .left-side {
-            width: 40%;
-        }
-
-        .right-side {
-            width: 60%;
-        }
-
         .articles-image {
             height: 80px;
             margin: 0;
-        }
-
-        .container .col-md-8 .body img {
-            max-height: 300px;
-            width: auto;
-        }
-
-        .user-name {
-            color: var(--main);
-            font-weight: bold;
-        }
-
-        .user-name:hover {
-            color: var(--second);
-            transition: .3s;
-        }
-
-        .photo-user {
-            width: 3.5rem;
-            height: 3.5rem;
-        }
-
-        .comment-menu {
-            cursor: pointer;
-        }
-
-        .comment-menu:hover {
-            color: #0a58ca!important;
-            transition: .3s;
         }
     </style>
     @livewireStyles
@@ -54,14 +16,22 @@
         $('.body table').addClass('table table-bordered');
     </script>
     @livewireScripts
+    <script>
+        Livewire.on('comment_store', commentId => {
+            let scroll = document.getElementById('comment-' + commentId);
+            scroll.scrollIntoView({
+                behavior: 'smooth'
+            }, true);
+        })
+    </script>
 @endpush
 
 @section('content')
     <div class="container">
-        <div class="row mt-5">
+        <div class="row mt-4">
             <div class="col-md-8">
-                <h1 class="fw-bold">{{ $article->title }}</h1>
-                <p class="fs-5">
+                <h1 class="fw-bold text-main">{{ $article->title }}</h1>
+                <p class="text-dark">
                     {{ $article->description }}
                 </p>
                 <div class="d-flex align-items-center">
@@ -78,7 +48,7 @@
                 <hr>
                 <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="Gambar {{ $article->title }}"
                     class="img-fluid">
-                <div class="body my-3">
+                <div class="body my-3 text-dark">
                     {!! $article->body !!}
                 </div>
 
@@ -89,9 +59,9 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 sticky-top z-0" style="height: fit-content; top: 1rem">
                 @if ($user_articles->count())
-                    <h5 class="fw-bold">Berita lainnya oleh {{ $article->user->name }}</h5>
+                    <h5 class="fw-bold text-main">Berita lainnya oleh {{ $article->user->name }}</h5>
                     @foreach ($user_articles as $article)
                         <div class="row my-3">
                             <a href="" class="left-side">
@@ -100,6 +70,10 @@
                             </a>
                             <a href="" class="right-side">
                                 <div class="articles-title fw-bold fs-md">{{ $article->title }}</div>
+                                <p class="text-secondary fs-sm">
+                                    <i class="bi bi-pen"></i>
+                                    {{ date('d M Y', strtotime($article->created_at)) }}
+                                </p>
                             </a>
                         </div>
                     @endforeach
@@ -107,7 +81,7 @@
                 @endif
 
                 @if ($category_articles->count())
-                    <h5 class="fw-bold">Berita lainnya di kategori {{ $article->category->name }}</h5>
+                    <h5 class="fw-bold text-main">Berita lainnya di kategori {{ $article->category->name }}</h5>
                     @foreach ($category_articles as $article)
                         <div class="row my-3">
                             <a href="" class="left-side">

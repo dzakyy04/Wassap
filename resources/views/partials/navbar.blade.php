@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+<nav class="navbar navbar-expand-lg bg-white shadow-sm position-relative z-3">
     <div class="container">
         <a class="navbar-brand" href="#">
             <img src="{{ asset('img/logo-wassap.png') }}" alt="logo wassap" width="120">

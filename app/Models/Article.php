@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Models\Category;
 use App\Models\User;
-use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
@@ -24,10 +23,5 @@ class Article extends Model implements HasMedia
     public function category()
     {
         return $this->belongsTo(Category::class);
-    }
-
-    public function comment()
-    {
-        return $this->hasMany(Comment::class);
     }
 }
