@@ -65,7 +65,7 @@
                         <div class="text-secondary">Oleh <a href="" class="user-name">{{ $article->user->name }}</a>
                         </div>
                         <div class="text-secondary fs-md">
-                            {{ date('d M Y H:i:s', strtotime($article->created_at)) }} WIB
+                            {{ date('d M Y H:i', strtotime($article->created_at)) }} WIB
                         </div>
                     </div>
                 </div>
@@ -88,11 +88,11 @@
                     <h5 class="fw-bold text-main">Berita lainnya oleh {{ $article->user->name }}</h5>
                     @foreach ($user_articles as $article)
                         <div class="row my-3">
-                            <a href="" class="left-side">
+                            <a href="{{ route('articles.show', $article->slug) }}" class="left-side">
                                 <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
                                 </div>
                             </a>
-                            <a href="" class="right-side">
+                            <a href="{{ route('articles.show', $article->slug) }}" class="right-side">
                                 <div class="articles-title fw-bold fs-md">{{ $article->title }}</div>
                                 <p class="text-secondary fs-sm">
                                     <i class="bi bi-pen"></i>
@@ -108,11 +108,11 @@
                     <h5 class="fw-bold text-main">Berita lainnya di kategori {{ $article->category->name }}</h5>
                     @foreach ($category_articles as $article)
                         <div class="row my-3">
-                            <a href="" class="left-side">
+                            <a href="{{ route('articles.show', $article->slug) }}" class="left-side">
                                 <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
                                 </div>
                             </a>
-                            <a href="" class="right-side d-flex flex-column justify-content-between">
+                            <a href="{{ route('articles.show', $article->slug) }}" class="right-side d-flex flex-column justify-content-between">
                                 <div class="articles-title fw-bold fs-md">{{ $article->title }}</div>
                                 <p class="text-secondary fs-sm">
                                     <i class="bi bi-pen"></i>
