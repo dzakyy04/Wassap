@@ -67,14 +67,16 @@
                     <th scope="col">Thumbnail</th>
                     <th scope="col" style="cursor: pointer;">
                         <div class="dropdown">
-                            <span class=" dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Kategori</span>
+                            <span class=" dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">Kategori</span>
                             <ul class="dropdown-menu">
                                 <li>
                                     <span class="dropdown-item" wire:click="$set('category', 'semua')">Semua</span>
                                 </li>
                                 @foreach ($categories as $category)
                                     <li>
-                                        <span class="dropdown-item" wire:click="$set('category', '{{ $category->slug }}')">{{ $category->name }}</span>
+                                        <span class="dropdown-item"
+                                            wire:click="$set('category', '{{ $category->slug }}')">{{ $category->name }}</span>
                                     </li>
                                 @endforeach
                             </ul>
@@ -106,8 +108,13 @@
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->description }}</td>
                         <td>
-                            <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="gambar berita"
-                                class="img-fluid">
+                            @if (strpos($article->thumbnail, 'article-thumbnail') !== false)
+                                <img src="{{ asset('storage/' . $article->thumbnail) }}"
+                                    alt="Gambar {{ $article->title }}" class="img-fluid">
+                            @else
+                                <img src="{{ asset($article->thumbnail) }}" alt="Gambar {{ $article->title }}"
+                                    class="img-fluid">
+                            @endif
                         </td>
                         <td>{{ $article->category->name }}</td>
                         <td class="text-center">
@@ -118,8 +125,8 @@
                             <div class="d-flex justify-content-center">
                                 <a href="{{ route('articles.show', $article->slug) }}"
                                     class="badge bg-info text-white"><i class="bi bi-eye"></i></a>
-                                <a href="{{ route('edit-news', $article->slug) }}" class="badge bg-warning text-white mx-1"><i
-                                        class="bi bi-pencil-square"></i></a>
+                                <a href="{{ route('edit-news', $article->slug) }}"
+                                    class="badge bg-warning text-white mx-1"><i class="bi bi-pencil-square"></i></a>
                                 <button type="submit" class="badge bg-danger border-0"
                                     onclick="confirmDelete({{ $article->id }})">
                                     <i class="bi bi-trash3"></i>

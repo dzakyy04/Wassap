@@ -10,7 +10,7 @@
             <div class="row align-items-center">
                 <div class="left col-md-6 text-center">
                     <img src="{{ asset('img/model.png') }}" class="img-fluid model" alt="model" height="400">
-                    </div>
+                </div>
                 <div class="right col-md-6">
                     <div>
                         <img src="{{ asset('img/logo-wassap.png') }}" class="img-fluid logo-wassap" alt="logo wassap"
@@ -67,8 +67,15 @@
                             {{-- Thumbnail --}}
                             <div class="col-md-5 articles-thumbnail">
                                 <a href="{{ route('articles.show', $article->slug) }}">
-                                    <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
-                                    </div>
+                                    @if (strpos($article->thumbnail, 'article-thumbnail') !== false)
+                                        <div class="articles-image"
+                                            style="background-image: url('{{ asset('storage/' . $article->thumbnail) }}')">
+                                        </div>
+                                    @else
+                                        <div class="articles-image"
+                                            style="background-image: url('{{ $article->thumbnail }}')">
+                                        </div>
+                                    @endif
                                 </a>
                             </div>
                         </div>

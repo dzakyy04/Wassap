@@ -44,9 +44,15 @@
                             {{-- Thumbnail --}}
                             <div class="col-md-12">
                                 <a href="{{ route('articles.show', $articles[0]->slug) }}">
-                                    <div class="articles-image"
-                                        style="background-image: url('{{ $articles[0]->thumbnail }}')">
-                                    </div>
+                                    @if (strpos($articles[0]->thumbnail, 'article-thumbnail') !== false)
+                                        <div class="articles-image"
+                                            style="background-image: url('{{ asset('storage/' . $articles[0]->thumbnail) }}')">
+                                        </div>
+                                    @else
+                                        <div class="articles-image"
+                                            style="background-image: url('{{ $articles[0]->thumbnail }}')">
+                                        </div>
+                                    @endif
                                 </a>
                             </div>
                             <div class="col-md-12 mt-2">
@@ -82,9 +88,15 @@
                                 {{-- Thumbnail --}}
                                 <div class="col-md-5 articles-thumbnail">
                                     <a href="{{ route('articles.show', $articles[1]->slug) }}">
-                                        <div class="articles-image"
-                                            style="background-image: url('{{ $articles[1]->thumbnail }}')">
-                                        </div>
+                                        @if (strpos($articles[1]->thumbnail, 'article-thumbnail') !== false)
+                                            <div class="articles-image"
+                                                style="background-image: url('{{ asset('storage/' . $articles[1]->thumbnail) }}')">
+                                            </div>
+                                        @else
+                                            <div class="articles-image"
+                                                style="background-image: url('{{ $articles[1]->thumbnail }}')">
+                                            </div>
+                                        @endif
                                     </a>
                                 </div>
                                 <div class="col-md-7 articles-content">
@@ -123,9 +135,15 @@
                                 {{-- Thumbnail --}}
                                 <div class="col-md-5 articles-thumbnail">
                                     <a href="{{ route('articles.show', $articles[2]->slug) }}">
-                                        <div class="articles-image"
-                                            style="background-image: url('{{ $articles[2]->thumbnail }}')">
-                                        </div>
+                                        @if (strpos($articles[2]->thumbnail, 'article-thumbnail') !== false)
+                                            <div class="articles-image"
+                                                style="background-image: url('{{ asset('storage/' . $articles[2]->thumbnail) }}')">
+                                            </div>
+                                        @else
+                                            <div class="articles-image"
+                                                style="background-image: url('{{ $articles[2]->thumbnail }}')">
+                                            </div>
+                                        @endif
                                     </a>
                                 </div>
                                 <div class="col-md-7 articles-content">
@@ -200,9 +218,15 @@
                                 {{-- Thumbnail --}}
                                 <div class="col-md-5 articles-thumbnail">
                                     <a href="{{ route('articles.show', $article->slug) }}">
-                                        <div class="articles-image"
-                                            style="background-image: url('{{ $article->thumbnail }}')">
-                                        </div>
+                                        @if (strpos($article->thumbnail, 'article-thumbnail') !== false)
+                                            <div class="articles-image"
+                                                style="background-image: url('{{ asset('storage/' . $article->thumbnail) }}')">
+                                            </div>
+                                        @else
+                                            <div class="articles-image"
+                                                style="background-image: url('{{ $article->thumbnail }}')">
+                                            </div>
+                                        @endif
                                     </a>
                                 </div>
                             </div>

@@ -55,10 +55,7 @@
         <div class="row mt-4">
             <div class="col-md-8">
                 <h1 class="fw-bold text-main">{{ $article->title }}</h1>
-                <p class="text-dark">
-                    {{ $article->description }}
-                </p>
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center my-3">
                     <img src="{{ $article->user->profile_picture }}" alt="Foto {{ $article->user->username }}"
                         class="img-fluid rounded-circle photo-user">
                     <div class="ms-2">
@@ -69,9 +66,15 @@
                         </div>
                     </div>
                 </div>
-                <hr>
-                <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="Gambar {{ $article->title }}"
-                    class="img-fluid">
+                <p class="text-dark">
+                    {{ $article->description }}
+                </p>
+                @if (strpos($article->thumbnail, 'article-thumbnail') !== false)
+                    <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="Gambar {{ $article->title }}"
+                        class="img-fluid">
+                @else
+                    <img src="{{ asset($article->thumbnail) }}" alt="Gambar {{ $article->title }}" class="img-fluid">
+                @endif
                 <div class="body my-3 text-dark">
                     {!! $article->body !!}
                 </div>
@@ -89,8 +92,13 @@
                     @foreach ($user_articles as $article)
                         <div class="row my-3">
                             <a href="{{ route('articles.show', $article->slug) }}" class="left-side">
-                                <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
-                                </div>
+                                @if (strpos($article->thumbnail, 'article-thumbnail') !== false)
+                                    <div class="articles-image" style="background-image: url('{{ asset('storage/' . $article->thumbnail) }}')">
+                                    </div>
+                                @else
+                                    <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
+                                    </div>
+                                @endif
                             </a>
                             <a href="{{ route('articles.show', $article->slug) }}" class="right-side">
                                 <div class="articles-title fw-bold fs-md">{{ $article->title }}</div>
@@ -109,10 +117,16 @@
                     @foreach ($category_articles as $article)
                         <div class="row my-3">
                             <a href="{{ route('articles.show', $article->slug) }}" class="left-side">
-                                <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
-                                </div>
+                                @if (strpos($article->thumbnail, 'article-thumbnail') !== false)
+                                    <div class="articles-image" style="background-image: url('{{ asset('storage/' . $article->thumbnail) }}')">
+                                    </div>
+                                @else
+                                    <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
+                                    </div>
+                                @endif
                             </a>
-                            <a href="{{ route('articles.show', $article->slug) }}" class="right-side d-flex flex-column justify-content-between">
+                            <a href="{{ route('articles.show', $article->slug) }}"
+                                class="right-side d-flex flex-column justify-content-between">
                                 <div class="articles-title fw-bold fs-md">{{ $article->title }}</div>
                                 <p class="text-secondary fs-sm">
                                     <i class="bi bi-pen"></i>
