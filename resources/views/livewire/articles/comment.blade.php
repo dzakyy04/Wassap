@@ -46,7 +46,7 @@
         </form>
     @else
         <div class="alert alert-warning" role="alert">
-            Silahkan masuk terlebih dahulu untuk memberikan komentar!
+            Silahkan masuk terlebih dahulu untuk memberikan komentar! <strong style="color: inherit"><a href="{{ route('login') }}">Masuk disini</a></strong>
         </div>
     @endauth
 

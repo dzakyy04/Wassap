@@ -80,8 +80,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Category::create([
-            'name' => 'Gaya Hidup',
-            'slug' => 'gaya-hidup',
+            'name' => 'Lifestyle',
+            'slug' => 'lifestyle',
             'image' => 'https://source.unsplash.com/700x300?lifestyle',
             'background' => '#27ae60',
             'color' => '#fff',

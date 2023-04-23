@@ -36,7 +36,7 @@ class ListArticles extends Component
 
         return view('livewire.articles.list-articles', [
             'articles' => $articles,
-            'categories' => Category::limit(5)->get(),
+            'categories' => Category::get(),
         ]);
     }
 
