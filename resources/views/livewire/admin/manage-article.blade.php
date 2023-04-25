@@ -96,9 +96,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($articles as $article)
+                @foreach ($articles as $index => $article)
                     <tr>
-                        <td class="text-center fw-bold">{{ $loop->iteration }}</td>
+                        <td class="text-center fw-bold">{{ $articles->firstItem() + $index }}</td>
                         <td>{{ $article->title }}</td>
                         <td>{{ $article->user->username }}</td>
                         <td>
