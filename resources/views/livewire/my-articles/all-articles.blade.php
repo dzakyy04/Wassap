@@ -124,12 +124,12 @@
                         <td>
                             <div class="d-flex justify-content-center">
                                 <a href="{{ route('articles.show', $article->slug) }}"
-                                    class="badge bg-info text-white"><i class="bi bi-eye"></i></a>
+                                    class="badge bg-info text-white"><i class="bi bi-eye"></i> Detail</a>
                                 <a href="{{ route('edit-news', $article->slug) }}"
-                                    class="badge bg-warning text-white mx-1"><i class="bi bi-pencil-square"></i></a>
+                                    class="badge bg-warning text-white mx-1"><i class="bi bi-pencil-square"></i> Edit</a>
                                 <button type="submit" class="badge bg-danger border-0"
                                     onclick="confirmDelete({{ $article->id }})">
-                                    <i class="bi bi-trash3"></i>
+                                    <i class="bi bi-trash3"></i> Hapus
                                 </button>
                             </div>
                         </td>

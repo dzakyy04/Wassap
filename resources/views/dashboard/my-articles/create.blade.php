@@ -222,7 +222,7 @@
                                     @enderror
                                 </div>
 
-                                <button type="submit" class="btn btn-primary mt-3">Buat Berita</button>
+                                <button type="submit" class="btn btn-primary mt-3">Tulis Berita</button>
                         </form>
                     </div>
                 </div>

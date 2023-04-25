@@ -18,7 +18,7 @@ class MyArticlesController extends Controller
     public function create()
     {
         return view('dashboard.my-articles.create', [
-            'categories' => Category::get(),
+            'categories' => Category::orderBy('name')->get(),
         ]);
     }
 
