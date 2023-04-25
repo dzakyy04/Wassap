@@ -81,9 +81,11 @@
 
                 <hr>
 
-                <div class="comments my-4">
-                    @livewire('articles.comment', ['id' => $article->id])
-                </div>
+                @if ($article->is_approved)
+                    <div class="comments my-4">
+                        @livewire('articles.comment', ['id' => $article->id])
+                    </div>
+                @endif
             </div>
 
             <div class="col-md-4 sticky-top z-0" style="height: fit-content; top: 1rem">
@@ -93,7 +95,8 @@
                         <div class="row my-3">
                             <a href="{{ route('articles.show', $article->slug) }}" class="left-side">
                                 @if (strpos($article->thumbnail, 'article-thumbnail') !== false)
-                                    <div class="articles-image" style="background-image: url('{{ asset('storage/' . $article->thumbnail) }}')">
+                                    <div class="articles-image"
+                                        style="background-image: url('{{ asset('storage/' . $article->thumbnail) }}')">
                                     </div>
                                 @else
                                     <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
@@ -118,7 +121,8 @@
                         <div class="row my-3">
                             <a href="{{ route('articles.show', $article->slug) }}" class="left-side">
                                 @if (strpos($article->thumbnail, 'article-thumbnail') !== false)
-                                    <div class="articles-image" style="background-image: url('{{ asset('storage/' . $article->thumbnail) }}')">
+                                    <div class="articles-image"
+                                        style="background-image: url('{{ asset('storage/' . $article->thumbnail) }}')">
                                     </div>
                                 @else
                                     <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">

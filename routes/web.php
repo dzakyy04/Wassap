@@ -57,7 +57,6 @@ Route::middleware('auth')->group(function () {
     Route::post('upload', [MyArticlesController::class, 'uploadImage'])->name('ckeditor.upload');
 
     // Admin
-    Route::get('/dashboard/admin/kategori', [CategoryController::class, 'index'])->name('admin.category');
     Route::get('/dashboard/admin/berita', [AdminArticleController::class, 'index'])->name('admin.article');
     Route::get('/dashboard/admin/{slug}/edit-berita', [AdminArticleController::class, 'edit'])->name('admin.edit-article');
     Route::post('/dashboard/admin/{slug}/edit-berita', [AdminArticleController::class, 'update'])->name('admin.update-article');

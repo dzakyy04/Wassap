@@ -47,18 +47,11 @@
                 </ul>
             </li>
 
-        <li class="nav-item">
-            <a class="nav-link {{ Request::segment(3) == 'berita' ? 'active' : '' }}"
-                href="{{ route('admin.article') }}">
-                <i class="bi bi-newspaper"></i>
-                <span>Semua Berita</span>
-            </a>
-        </li>
-
             <li class="nav-item">
-                <a class="nav-link {{ Request::segment(3) == 'kategori' ? 'active' : '' }}" href="{{ route('admin.category') }}">
-                    <i class="bi bi-tag"></i>
-                    <span>Kategori</span>
+                <a class="nav-link {{ Request::segment(3) == 'berita' ? 'active' : '' }}"
+                    href="{{ route('admin.article') }}">
+                    <i class="bi bi-newspaper"></i>
+                    <span>Semua Berita</span>
                 </a>
             </li>
         @endcan
