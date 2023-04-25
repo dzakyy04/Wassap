@@ -8,13 +8,14 @@
                 showCancelButton: true,
                 confirmButtonColor: '#033587',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!'
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
             }).then((result) => {
                 if (result.isConfirmed) {
                     deleteArticle(id);
                     Swal.fire(
                         'Terhapus',
-                        'Data berhasil dihapus',
+                        'Berita berhasil dihapus',
                         'success'
                     )
                 }
@@ -120,7 +121,8 @@
                                 <a href="{{ route('articles.show', $article->slug) }}"
                                     class="badge bg-info text-white"><i class="bi bi-eye"></i> Detail</a>
                                 <a href="{{ route('admin.edit-article', $article->slug) }}"
-                                    class="badge bg-warning text-white mx-1"><i class="bi bi-pencil-square"></i> Edit</a>
+                                    class="badge bg-warning text-white mx-1"><i class="bi bi-pencil-square"></i>
+                                    Edit</a>
                                 <button type="submit" class="badge bg-danger border-0"
                                     onclick="confirmDelete({{ $article->id }})">
                                     <i class="bi bi-trash3"></i> Hapus

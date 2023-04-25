@@ -8,13 +8,14 @@
                 showCancelButton: true,
                 confirmButtonColor: '#033587',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!'
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
             }).then((result) => {
                 if (result.isConfirmed) {
                     deleteArticle(id);
                     Swal.fire(
                         'Terhapus',
-                        'Data berhasil dihapus',
+                        'Berita berhasil dihapus',
                         'success'
                     )
                 }
