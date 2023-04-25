@@ -18,7 +18,7 @@ class ArticleController extends Controller
             ->firstOrFail();
 
         if (!$article->is_approved) {
-            if(auth()->user()-> id != $article->user->id) {
+            if(auth()->user()->id != $article->user->id && auth()->user()->is_admin == false) {
                 abort('403');
             }
         }

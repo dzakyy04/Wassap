@@ -9,7 +9,7 @@
             data: {
                 labels: {!! json_encode($categories->pluck('name')) !!},
                 datasets: [{
-                    label: 'Jumlah Berita per Kategori',
+                    label: 'Jumlah berita per kategori',
                     data: {!! json_encode(
                         $categories->map(function ($category) {
                             return $category->articles->count();
@@ -216,6 +216,7 @@
                         <div class="col-xxl-12 col-md-12">
                             <div class="card">
                                 <div class="card-body">
+                                    <h5 class="card-title">Laporan berita</h5>
                                     <canvas id="myChart" class="w-100"></canvas>
                                 </div>
                             </div>
