@@ -16,11 +16,19 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'Dewa Sheva Dzaky',
-            'username' => 'dzakyyyy',
-            'email' => 'dzakylinggau@gmail.com',
+            'name' => 'Admin',
+            'username' => 'admin',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
             'is_admin' => true,
+        ]);
+
+        User::create([
+            'name' => 'User Biasa',
+            'username' => 'user',
+            'email' => 'user@gmail.com',
+            'password' => bcrypt('password'),
+            'is_admin' => false,
         ]);
 
         Category::create([
