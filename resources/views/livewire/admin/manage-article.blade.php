@@ -42,13 +42,7 @@
         </script>
     @endif
 
-    <div class="mb-3 d-flex justify-content-between">
-        <a href="{{ route('create-news') }}" class="btn btn-primary col-md-6"
-            style="height: fit-content; width: fit-content">
-            <i class="bi bi-plus"></i>
-            <span>Tulis Berita</span>
-        </a>
-
+    <div class="mb-3 d-flex justify-content-end">
         <div class="search-bar">
             <form class="search-form d-flex align-items-center" method="POST" action="#">
                 <input type="text" name="query" placeholder="Cari..." wire:model='search'>

@@ -39,21 +39,27 @@ class ManageArticle extends Component
                 return $query->where('is_approved', $this->status);
             })
             ->when($this->category !== 'semua', function ($query) {
-                return $query->whereHas('category', function ($query) {
-                    $query->where('slug', $this->category);
+                $query->whereHas('category', function ($q) {
+                    $q->where('name', $this->category);
                 });
             })
             ->where(function ($query) {
                 $query->where('title', 'like', '%' . $this->search . '%')
-                    ->orWhere('description', 'like', '%' . $this->search . '%');
+                    ->orWhere('description', 'like', '%' . $this->search . '%')
+                    ->orWhereHas('user', function ($query) {
+                        $query->where('username', 'like', '%' . $this->search . '%');
+                    })->orWhereHas('category', function ($query) {
+                        $query->where('name', 'like', '%' . $this->search . '%');
+                    });
             })
             ->paginate($this->entries);
 
         return view('livewire.admin.manage-article', [
             'articles' => $articles,
-            'categories' => Category::get()
+            'categories' => Category::orderBy('name')->get()
         ]);
     }
+
 
     public function updatingSearch()
     {

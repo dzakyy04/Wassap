@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
@@ -29,7 +30,8 @@ class DashboardController extends Controller
             'total_admin' => $total_admin,
             'all_articles' => $all_articles->count(),
             'all_approved' => $all_approved->count(),
-            'all_not_approved' => $all_not_approved->count()
+            'all_not_approved' => $all_not_approved->count(),
+            'categories' => Category::orderBy('name')->get()
         ]);
     }
 }

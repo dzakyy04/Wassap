@@ -53,7 +53,7 @@ class AllArticles extends Component
 
         return view('livewire.my-articles.all-articles', [
             'articles' => $articles,
-            'categories' => Category::get()
+            'categories' => Category::orderBy('name')->get()
         ]);
     }
 

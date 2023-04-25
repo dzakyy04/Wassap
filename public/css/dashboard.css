@@ -411,8 +411,9 @@ h6 {
 }
 
 .search-bar {
-    min-width: 360px;
-    padding: 0 20px;
+    
+    width: 360px;
+    padding: 0;
 }
 
 .search-form {
