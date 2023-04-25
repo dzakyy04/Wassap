@@ -185,8 +185,13 @@
                                 {{-- Thumbnail --}}
                                 <div class="mb-3">
                                     <label for="thumbnail" class="form-label">Thumbnail</label>
-                                    <img src="{{ asset("storage/$article->thumbnail") }}"
-                                        class="img-preview img-fluid mb-3 col-sm-3 d-block">
+                                    @if (strpos($article->thumbnail, 'article-thumbnail') !== false)
+                                        <img src="{{ asset("storage/$article->thumbnail") }}"
+                                            class="img-preview img-fluid mb-3 col-sm-3 d-block">
+                                    @else
+                                        <img src="{{ $article->thumbnail }}"
+                                            class="img-preview img-fluid mb-3 col-sm-3 d-block">
+                                    @endif
                                     <input class="form-control @error('thumbnail') is-invalid @enderror" type="file"
                                         id="thumbnail" name="thumbnail" onchange="previewImage()">
                                     @error('thumbnail')

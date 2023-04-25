@@ -47,32 +47,16 @@
                 </ul>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#berita_admin" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-newspaper"></i>
-                    <span>Berita</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="berita_admin" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="components-alerts.html">
-                            <i class="bi bi-circle"></i><span>Semua Berita</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="components-alerts.html">
-                            <i class="bi bi-circle"></i><span>Disetujui</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="components-alerts.html">
-                            <i class="bi bi-circle"></i><span>Belum disetujui</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+        <li class="nav-item">
+            <a class="nav-link {{ Request::segment(3) == 'berita' ? 'active' : '' }}"
+                href="{{ route('admin.article') }}">
+                <i class="bi bi-newspaper"></i>
+                <span>Semua Berita</span>
+            </a>
+        </li>
 
             <li class="nav-item">
-                <a class="nav-link {{ Request::segment('3') == 'kategori' ? 'active' : '' }}" href="{{ route('admin.category') }}">
+                <a class="nav-link {{ Request::segment(3) == 'kategori' ? 'active' : '' }}" href="{{ route('admin.category') }}">
                     <i class="bi bi-tag"></i>
                     <span>Kategori</span>
                 </a>

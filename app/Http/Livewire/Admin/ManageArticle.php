@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Livewire\MyArticles;
+namespace App\Http\Livewire\Admin;
 
 use App\Models\Article;
 use App\Models\Category;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class AllArticles extends Component
+class ManageArticle extends Component
 {
     use WithPagination;
 
@@ -36,7 +35,6 @@ class AllArticles extends Component
     public function render()
     {
         $articles = Article::with(['user', 'category'])
-            ->where('user_id', Auth::user()->id)
             ->when($this->status !== 'semua', function ($query) {
                 return $query->where('is_approved', $this->status);
             })
@@ -51,7 +49,7 @@ class AllArticles extends Component
             })
             ->paginate($this->entries);
 
-        return view('livewire.my-articles.all-articles', [
+        return view('livewire.admin.manage-article', [
             'articles' => $articles,
             'categories' => Category::get()
         ]);

@@ -73,7 +73,7 @@ class MyArticlesController extends Controller
         $article = Article::where('slug', $slug)->first();
 
         if ($article->user->id != Auth::user()->id) {
-            abort(403);
+            return abort(403);
         }
 
         if (!$article) {
