@@ -124,6 +124,6 @@ class MyArticlesController extends Controller
 
         Article::where('slug', $article->slug)->update($validatedData);
 
-        return redirect()->route('my-articles')->with('success', 'Berita berhasil diupdate');
+        return redirect()->route('my-articles')->with('success', 'Berita berhasil diedit');
     }
 }
