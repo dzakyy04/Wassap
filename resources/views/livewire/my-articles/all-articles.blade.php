@@ -43,7 +43,7 @@
         </script>
     @endif
 
-    <div class="mb-3 d-flex justify-content-between">
+    <div class="head mb-3 d-flex justify-content-between">
         <a href="{{ route('create-news') }}" class="btn btn-primary col-md-6"
             style="height: fit-content; width: fit-content">
             <i class="bi bi-plus"></i>

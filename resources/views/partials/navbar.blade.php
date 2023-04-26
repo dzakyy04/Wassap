@@ -66,7 +66,7 @@
                         </ul>
                     </li>
                 @else
-                    <li class="nav-item rounded login">
+                    <li class="nav-item rounded login px-2">
                         <a class="nav-link text-white" href="{{ route('login') }}"><i
                                 class="bi bi-box-arrow-in-right me-1 text-white"></i> Masuk</a>
                     </li>
@@ -85,7 +85,7 @@
 
                             <div class="buttons d-flex justify-content-end mt-3">
                                 <button type="button" class="btn btn-secondary me-2"
-                                    data-bs-dismiss="modal">Close</button>
+                                    data-bs-dismiss="modal">Tutup</button>
                                 <button type="submit" class="btn btn-primary">Cari</button>
                             </div>
                         </form>
