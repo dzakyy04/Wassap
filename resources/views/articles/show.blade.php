@@ -54,7 +54,7 @@
     <div class="container">
         <div class="row mt-4">
             <div class="col-md-8">
-                <h1 class="fw-bold text-main">{{ $article->title }}</h1>
+                <h2 class="fw-bold text-main">{{ $article->title }}</h2>
                 <div class="d-flex align-items-center my-3">
                     <img src="{{ $article->user->profile_picture }}" alt="Foto {{ $article->user->username }}"
                         class="img-fluid rounded-circle photo-user">
@@ -79,8 +79,6 @@
                     {!! $article->body !!}
                 </div>
 
-                <hr>
-
                 @if ($article->is_approved)
                     <div class="comments my-4">
                         @livewire('articles.comment', ['id' => $article->id])
@@ -88,59 +86,63 @@
                 @endif
             </div>
 
-            <div class="col-md-4 sticky-top z-0" style="height: fit-content; top: 1rem">
-                @if ($user_articles->count())
-                    <h5 class="fw-bold text-main">Berita lainnya oleh {{ $article->user->name }}</h5>
-                    @foreach ($user_articles as $article)
-                        <div class="row my-3">
-                            <a href="{{ route('articles.show', $article->slug) }}" class="left-side">
-                                @if (strpos($article->thumbnail, 'article-thumbnail') !== false)
-                                    <div class="articles-image"
-                                        style="background-image: url('{{ asset('storage/' . $article->thumbnail) }}')">
-                                    </div>
-                                @else
-                                    <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
-                                    </div>
-                                @endif
-                            </a>
-                            <a href="{{ route('articles.show', $article->slug) }}" class="right-side">
-                                <div class="articles-title fw-bold fs-md">{{ $article->title }}</div>
-                                <p class="text-secondary fs-sm">
-                                    <i class="bi bi-pen"></i>
-                                    {{ date('d M Y', strtotime($article->created_at)) }}
-                                </p>
-                            </a>
-                        </div>
-                    @endforeach
-                    <hr>
-                @endif
+            @if ($article->is_approved)
+                <div class="col-md-4 sticky-top z-0" style="height: fit-content; top: 1rem">
+                    @if ($user_articles->count())
+                        <h5 class="fw-bold text-main">Berita lainnya oleh {{ $article->user->name }}</h5>
+                        @foreach ($user_articles as $article)
+                            <div class="row my-3">
+                                <a href="{{ route('articles.show', $article->slug) }}" class="left-side">
+                                    @if (strpos($article->thumbnail, 'article-thumbnail') !== false)
+                                        <div class="articles-image"
+                                            style="background-image: url('{{ asset('storage/' . $article->thumbnail) }}')">
+                                        </div>
+                                    @else
+                                        <div class="articles-image"
+                                            style="background-image: url('{{ $article->thumbnail }}')">
+                                        </div>
+                                    @endif
+                                </a>
+                                <a href="{{ route('articles.show', $article->slug) }}" class="right-side">
+                                    <div class="articles-title fw-bold fs-md">{{ $article->title }}</div>
+                                    <p class="text-secondary fs-sm">
+                                        <i class="bi bi-pen"></i>
+                                        {{ date('d M Y', strtotime($article->created_at)) }}
+                                    </p>
+                                </a>
+                            </div>
+                        @endforeach
+                        <hr>
+                    @endif
 
-                @if ($category_articles->count())
-                    <h5 class="fw-bold text-main">Berita lainnya di kategori {{ $article->category->name }}</h5>
-                    @foreach ($category_articles as $article)
-                        <div class="row my-3">
-                            <a href="{{ route('articles.show', $article->slug) }}" class="left-side">
-                                @if (strpos($article->thumbnail, 'article-thumbnail') !== false)
-                                    <div class="articles-image"
-                                        style="background-image: url('{{ asset('storage/' . $article->thumbnail) }}')">
-                                    </div>
-                                @else
-                                    <div class="articles-image" style="background-image: url('{{ $article->thumbnail }}')">
-                                    </div>
-                                @endif
-                            </a>
-                            <a href="{{ route('articles.show', $article->slug) }}"
-                                class="right-side d-flex flex-column justify-content-between">
-                                <div class="articles-title fw-bold fs-md">{{ $article->title }}</div>
-                                <p class="text-secondary fs-sm">
-                                    <i class="bi bi-pen"></i>
-                                    {{ date('d M Y', strtotime($article->created_at)) }}
-                                </p>
-                            </a>
-                        </div>
-                    @endforeach
-                @endif
-            </div>
+                    @if ($category_articles->count())
+                        <h5 class="fw-bold text-main">Berita lainnya di kategori {{ $article->category->name }}</h5>
+                        @foreach ($category_articles as $article)
+                            <div class="row my-3">
+                                <a href="{{ route('articles.show', $article->slug) }}" class="left-side">
+                                    @if (strpos($article->thumbnail, 'article-thumbnail') !== false)
+                                        <div class="articles-image"
+                                            style="background-image: url('{{ asset('storage/' . $article->thumbnail) }}')">
+                                        </div>
+                                    @else
+                                        <div class="articles-image"
+                                            style="background-image: url('{{ $article->thumbnail }}')">
+                                        </div>
+                                    @endif
+                                </a>
+                                <a href="{{ route('articles.show', $article->slug) }}"
+                                    class="right-side d-flex flex-column justify-content-between">
+                                    <div class="articles-title fw-bold fs-md">{{ $article->title }}</div>
+                                    <p class="text-secondary fs-sm">
+                                        <i class="bi bi-pen"></i>
+                                        {{ date('d M Y', strtotime($article->created_at)) }}
+                                    </p>
+                                </a>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            @endif
         </div>
     </div>
 @endsection

@@ -22,14 +22,6 @@
                     <a class="nav-link text-main {{ Request::segment(1) == 'berita' ? 'active' : '' }}"
                         href="{{ route('articles.index') }}">Berita</a>
                 </li>
-                <li class="nav-item rounded">
-                    <a class="nav-link text-main" {{ Request::segment(0) == 'kategori' ? 'active' : '' }}
-                        href="#">Kategori</a>
-                </li>
-                <li class="nav-item rounded">
-                    <a class="nav-link text-main {{ Request::segment(0) == 'penulis' ? 'active' : '' }}"
-                        href="#">Penulis</a>
-                </li>
                 <li class="nav-item rounded mx-3 search-2">
                     <div data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="text-main bi bi-search"></i>
@@ -45,16 +37,6 @@
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile position-absolute">
                             <li class="dropdown-header">
                                 <h6>{{ auth()->user()->name }}</h6>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                                    <i class="bi bi-person"></i>
-                                    <span>Profil Saya</span>
-                                </a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -98,10 +80,12 @@
                     <div class="modal-body">
                         <form action="{{ route('articles.index') }}" method="GET">
                             <h3 class="text-main">Pencarian</h3>
-                            <input type="text" class="form-control search-box mt-2" name="cari" placeholder="Cari..." autofocus>
+                            <input type="text" class="form-control search-box mt-2" name="cari"
+                                placeholder="Cari..." autofocus>
 
                             <div class="buttons d-flex justify-content-end mt-3">
-                                <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary me-2"
+                                    data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Cari</button>
                             </div>
                         </form>
