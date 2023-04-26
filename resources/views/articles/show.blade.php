@@ -62,7 +62,7 @@
                         <div class="text-secondary">Oleh <a href="" class="user-name">{{ $article->user->name }}</a>
                         </div>
                         <div class="text-secondary fs-md">
-                            {{ date('d M Y H:i', strtotime($article->created_at)) }} WIB
+                            {{ date('d M Y - H:i', strtotime($article->created_at)) }} WIB
                         </div>
                     </div>
                 </div>
