@@ -8,8 +8,8 @@
 
 .team .member .teampic {
     overflow: hidden;
-    width: 180px;
-    height: 180px;
+    width: 40%;
+    height: auto;
     border-radius: 50%;
 }
 
@@ -23,6 +23,7 @@ transition: ease-in-out 0.3s;
 } */
 
 .team .member .member-info {
+    width: 60%;
     padding-left: 30px;
 }
 

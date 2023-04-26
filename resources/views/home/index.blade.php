@@ -84,7 +84,7 @@
                     <hr>
                 @endforeach
             </div>
-            <div class="col-md-4 sticky-top" style="height: fit-content; top: 1rem">
+            <div class="col-md-4 sticky-top ps-4" style="height: fit-content; top: 1rem">
                 <h5 class="fw-bold text-poppins">Temukan lebih banyak hal yang penting bagi Anda</h5>
                 <div class="row my-2">
                     <div class="col-md-12">

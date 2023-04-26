@@ -23,7 +23,7 @@
                             <h4>Dewa Sheva Dzaky</h4>
                             <span>09021182126005</span>
 
-                            <p>Barudak Musi Rawas</p>
+                            <p>Ketika baikmu disepelekan, maju dan hancurkan. Maju ketika benar diam ketika salah, YOW Kumaha Barudak SIKATTT!!😎✌️</p>
                             <div class="social">
                                 <a href="https://www.instagram.com/dzaa.kyyy/"><i class="bi bi-instagram"></i></a>
                                 <a href="https://www.linkedin.com/in/dewa-sheva-dzaky/"><i class="bi bi-linkedin"></i></a>
@@ -41,7 +41,7 @@
                             <h4>Indra Juliansyah Putra</h4>
                             <span>09021182126016</span>
 
-                            <p>Barudak Empat Lawang</p>
+                            <p>Kamu terlalu gangster buat aku yang suka gemeter, kucing baru terbit iyeuu TIRIZZZZ 🥶🥶🔥🔥🔥</p>
                             <div class="social">
                                 <a href="https://www.instagram.com/abdi_ijul/"><i class="bi bi-instagram"></i></a>
                                 <a href="https://www.linkedin.com/in/indra-juliansyah-putra/"><i class="bi bi-linkedin"></i></a>
@@ -59,7 +59,7 @@
                             <h4>Nadia Laras</h4>
                             <span>09021182126019</span>
 
-                            <p>Barudak Kertapati</p>
+                            <p>Welcome to Meowdonald cik nak order ape? ice cream? habis, nak ayam goreng? habis, saye je ade😺🙏</p>
                             <div class="social">
                                 <a href="https://www.instagram.com/nadialaraz/"><i class="bi bi-instagram"></i></a>
                                 <a href="https://www.linkedin.com/in/nadia-laras-89762a221/"><i class="bi bi-linkedin"></i></a>
@@ -77,7 +77,7 @@
                             <h4>Aditya Kurniawan</h4>
                             <span>09021182126028</span>
 
-                            <p>Barudak Layoh</p>
+                            <p>Beli paku sama si opik, pulangnya nganter si tata beli kapol, aku emang gabisa cari topik, tapi cintaku padamu POLL. Kumaha pamadun? WELL🤙🤜</p>
                             <div class="social">
                                 <a href="https://www.instagram.com/aditiya.kurniawan8/"><i class="bi bi-instagram"></i></a>
                                 <a href="#"><i class="bi bi-linkedin"></i></a>
@@ -95,7 +95,7 @@
                             <h4>Bima Aryadinata</h4>
                             <span>09021282126035</span>
 
-                            <p>Barudak Bangka</p>
+                            <p>Hujan msih air, Gluduk masih bentar, Tetapi cintaku padamu tak akan pernah pudar, kumaha pakele? WELL☝️🤘</p>
                             <div class="social">
                                 <a href="https://www.instagram.com/bima__a/"><i class="bi bi-instagram"></i></a>
                                 <a href="https://www.linkedin.com/in/bima-aryadinata-43a392224/"><i class="bi bi-linkedin"></i></a>

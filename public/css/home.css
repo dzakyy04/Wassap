@@ -16,6 +16,7 @@
 
     .col-md-4.sticky-top {
         position: static !important;
+        padding-left: 0 !important;
     }
 }
 
