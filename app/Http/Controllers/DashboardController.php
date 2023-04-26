@@ -20,6 +20,7 @@ class DashboardController extends Controller
         $all_articles = Article::with(['user', 'category'])->get();
         $all_approved = $all_articles->where('is_approved', true);
         $all_not_approved = $all_articles->where('is_approved', false);
+        $all_headlines = $all_articles->where('is_headline', true);
 
 
         return view('dashboard.index', [
@@ -31,6 +32,7 @@ class DashboardController extends Controller
             'all_articles' => $all_articles->count(),
             'all_approved' => $all_approved->count(),
             'all_not_approved' => $all_not_approved->count(),
+            'all_headlines' => $all_headlines->count(),
             'categories' => Category::orderBy('name')->get()
         ]);
     }

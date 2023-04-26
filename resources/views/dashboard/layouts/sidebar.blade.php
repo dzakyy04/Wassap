@@ -28,24 +28,21 @@
         @can('admin')
             <li class="nav-heading">Admin</li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#admin" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-people"></i>
-                    <span>Pengguna</span><i class="bi bi-chevron-down ms-auto"></i>
+            {{-- <li class="nav-item">
+                <a class="nav-link {{ Request::segment(3) == 'pengguna' ? 'active' : '' }}"
+                    href="{{ route('admin.user') }}">
+                    <i class="bi bi-newspaper"></i>
+                    <span>Pengguna</span>
                 </a>
-                <ul id="admin" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="components-alerts.html">
-                            <i class="bi bi-circle"></i><span>Pengguna</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="components-alerts.html">
-                            <i class="bi bi-circle"></i><span>Admin</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::segment(3) == 'admin' ? 'active' : '' }}"
+                    href="{{ route('admin.admin') }}">
+                    <i class="bi bi-newspaper"></i>
+                    <span>Admin</span>
+                </a>
+            </li> --}}
 
             <li class="nav-item">
                 <a class="nav-link {{ Request::segment(3) == 'berita' ? 'active' : '' }}"
