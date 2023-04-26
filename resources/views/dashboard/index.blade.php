@@ -213,6 +213,24 @@
                             </a>
                         </div>
 
+                        <div class="col-xxl-4 col-md-4">
+                            <a href="{{ route('admin.article', ['headline' => 'ya']) }}"
+                                class="card info-card red-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Berita Utama</h5>
+                                    <div class="d-flex align-items-center">
+                                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-newspaper"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6>{{ $all_approved }}</h6>
+                                            <span class="text-secondary small pt-1 fw-bold">Berita</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
                         <div class="col-xxl-12 col-md-12">
                             <div class="card">
                                 <div class="card-body">

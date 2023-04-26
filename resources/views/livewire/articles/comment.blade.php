@@ -54,7 +54,7 @@
         @foreach ($comments as $comment)
             <div class="d-flex" id="comment-{{ $comment->id }}">
                 <img src="{{ $comment->user->profile_picture }}" class="rounded-circle photo-user">
-                <div class="data-comment ms-3">
+                <div class="data-comment ms-3 w-100">
                     <div>
                         <span class="fw-bold">{{ $comment->user->name }}</span>
                         <span class="text-secondary fs-md">{{ date('d M Y', strtotime($comment->created_at)) }}</span>

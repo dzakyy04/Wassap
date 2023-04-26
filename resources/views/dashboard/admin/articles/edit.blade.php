@@ -7,7 +7,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Ubah Status</h5>
-                        <form action="{{ route('admin.update-article', $article->slug) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('admin.update-article', $article->slug) }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             {{-- Title --}}
                             <div class="mb-3">
@@ -93,8 +94,22 @@
                                     <select class="form-select @error('is_approved') is-invalid @enderror" id="status"
                                         name="is_approved">
                                         <option value="" disabled>Ubah status</option>
-                                        <option value="0" @if($article->is_approved == 0) selected @endif >Belum Disetujui</option>
-                                        <option value="1" @if($article->is_approved == 1) selected @endif >Disetujui</option>
+                                        <option value="0" @if ($article->is_approved == 0) selected @endif>Belum
+                                            Disetujui</option>
+                                        <option value="1" @if ($article->is_approved == 1) selected @endif>Disetujui
+                                        </option>
+                                    </select>
+                                </div>
+
+                                {{-- Headline --}}
+                                <div class="mb-3">
+                                    <label for="headline" class="form-label">Berita utama</label>
+                                    <select class="form-select @error('is_approved') is-invalid @enderror" id="headline"
+                                        name="is_headline">
+                                        <option value="" disabled>Ubah status</option>
+                                        <option value="1" @if ($article->is_headline == 1) selected @endif>Ya</option>
+                                        <option value="0" @if ($article->is_headline == 0) selected @endif>Tidak
+                                        </option>
                                     </select>
                                 </div>
 

@@ -15,7 +15,8 @@ class AdminArticleController extends Controller
         return view('dashboard.admin.articles.index');
     }
 
-    public function edit($slug) {
+    public function edit($slug)
+    {
         $this->authorize('admin');
         $article = Article::where('slug', $slug)->first();
         return view('dashboard.admin.articles.edit', [
@@ -24,10 +25,12 @@ class AdminArticleController extends Controller
         ]);
     }
 
-    public function update(Request $request, $slug) {
+    public function update(Request $request, $slug)
+    {
         $article = Article::where('slug', $slug)->first();
         $rules = [
-            'is_approved' => 'required'
+            'is_approved' => 'required',
+            'is_headline' => 'required',
         ];
 
         $validatedData = $request->validate($rules);

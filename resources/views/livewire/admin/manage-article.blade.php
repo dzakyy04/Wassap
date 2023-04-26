@@ -93,6 +93,23 @@
                             </ul>
                         </div>
                     </th>
+                    <th scope="col" style="cursor: pointer;">
+                        <div class="dropdown">
+                            <span class=" dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">Berita Utama</span>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <span class="dropdown-item" wire:click="$set('headline', 'semua')">Semua</span>
+                                </li>
+                                <li>
+                                    <span class="dropdown-item" wire:click="$set('headline', '1')">Ya</span>
+                                </li>
+                                <li>
+                                    <span class="dropdown-item" wire:click="$set('headline', '0')">Tidak</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
@@ -116,16 +133,19 @@
                             <span
                                 class="badge {{ $article->is_approved ? 'bg-success' : 'bg-warning' }} w-100">{{ $article->is_approved ? 'Disetujui' : 'Belum disetujui' }}</span>
                         </td>
+                        <td class="text-center">
+                            <span
+                                class="badge {{ $article->is_headline ? 'bg-success' : 'bg-warning' }} w-100">{{ $article->is_headline ? 'Ya' : 'Tidak' }}</span>
+                        </td>
                         <td>
                             <div class="d-flex justify-content-center">
                                 <a href="{{ route('articles.show', $article->slug) }}"
-                                    class="badge bg-info text-white"><i class="bi bi-eye"></i> Detail</a>
+                                    class="badge bg-info text-white"><i class="bi bi-eye"></i></a>
                                 <a href="{{ route('admin.edit-article', $article->slug) }}"
-                                    class="badge bg-warning text-white mx-1"><i class="bi bi-pencil-square"></i>
-                                    Edit</a>
+                                    class="badge bg-warning text-white mx-1"><i class="bi bi-pencil-square"></i></a>
                                 <button type="submit" class="badge bg-danger border-0"
                                     onclick="confirmDelete({{ $article->id }})">
-                                    <i class="bi bi-trash3"></i> Hapus
+                                    <i class="bi bi-trash3"></i>
                                 </button>
                             </div>
                         </td>

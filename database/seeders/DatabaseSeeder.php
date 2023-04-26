@@ -119,7 +119,6 @@ class DatabaseSeeder extends Seeder
             'color' => '#fff',
         ]);
 
-
         User::factory(5)->create();
         Article::factory(50)->create();
 

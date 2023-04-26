@@ -15,7 +15,7 @@ class ManageArticle extends Component
     protected $paginationTheme = 'bootstrap';
     protected $listeners = ['deleteArticle' => 'delete'];
 
-    public $search = '', $entries = 10, $status = 'semua', $category = 'semua', $confirmDelete;
+    public $search = '', $entries = 10, $status = 'semua', $headline = 'semua', $category = 'semua', $confirmDelete;
 
     public function mount()
     {
@@ -25,6 +25,12 @@ class ManageArticle extends Component
             $this->status = 1;
         } else if (request()->input('status') == 'belum-disetujui') {
             $this->status = 0;
+        }
+
+        if (request()->input('headline') == 'ya') {
+            $this->headline = 1;
+        } else if (request()->input('headline') == 'tidak') {
+            $this->headline = 0;
         }
 
         if (request()->input('category')) {
@@ -37,6 +43,9 @@ class ManageArticle extends Component
         $articles = Article::with(['user', 'category'])
             ->when($this->status !== 'semua', function ($query) {
                 return $query->where('is_approved', $this->status);
+            })
+            ->when($this->headline !== 'semua', function ($query) {
+                return $query->where('is_headline', $this->headline);
             })
             ->when($this->category !== 'semua', function ($query) {
                 $query->whereHas('category', function ($q) {
@@ -67,6 +76,11 @@ class ManageArticle extends Component
     }
 
     public function updatedStatus()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedHeadline()
     {
         $this->resetPage();
     }
