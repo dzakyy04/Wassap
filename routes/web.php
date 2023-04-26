@@ -75,3 +75,8 @@ Route::middleware('auth')->group(function () {
 // Berita
 Route::get('/berita', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/berita/{slug}', [ArticleController::class, 'show'])->name('articles.show');
+
+// Tentang
+Route::get('/tentang', function() {
+    return view('about.index');
+})->name('about');

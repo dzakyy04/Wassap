@@ -22,6 +22,10 @@
                     <a class="nav-link text-main {{ Request::segment(1) == 'berita' ? 'active' : '' }}"
                         href="{{ route('articles.index') }}">Berita</a>
                 </li>
+                <li class="nav-item rounded">
+                    <a class="nav-link text-main {{ Request::segment(1) == 'tentang' ? 'active' : '' }}"
+                        href="{{ route('about') }}">Tentang</a>
+                </li>
                 <li class="nav-item rounded mx-3 search-2">
                     <div data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="text-main bi bi-search"></i>
