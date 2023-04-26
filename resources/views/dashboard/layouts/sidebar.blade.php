@@ -28,10 +28,10 @@
         @can('admin')
             <li class="nav-heading">Admin</li>
 
-            {{-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link {{ Request::segment(3) == 'pengguna' ? 'active' : '' }}"
                     href="{{ route('admin.user') }}">
-                    <i class="bi bi-newspaper"></i>
+                    <i class="bi bi-people"></i>
                     <span>Pengguna</span>
                 </a>
             </li>
@@ -39,10 +39,10 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::segment(3) == 'admin' ? 'active' : '' }}"
                     href="{{ route('admin.admin') }}">
-                    <i class="bi bi-newspaper"></i>
+                    <i class="bi bi-person"></i>
                     <span>Admin</span>
                 </a>
-            </li> --}}
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link {{ Request::segment(3) == 'berita' ? 'active' : '' }}"

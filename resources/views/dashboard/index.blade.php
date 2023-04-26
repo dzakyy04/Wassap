@@ -126,7 +126,7 @@
                     <div class="row">
                         {{-- User --}}
                         <div class="col-xxl-4 col-md-4">
-                            <a href="{{ route('admin.article') }}" class="card info-card blue-card">
+                            <a href="{{ route('admin.user') }}" class="card info-card blue-card">
                                 <div class="card-body">
                                     <h5 class="card-title">Pengguna</h5>
                                     <div class="d-flex align-items-center">
@@ -143,7 +143,7 @@
                         </div>
 
                         <div class="col-xxl-4 col-md-4">
-                            <a href="{{ route('my-articles', ['status' => 'disetujui']) }}" class="card info-card green-card">
+                            <a href="{{ route('admin.admin') }}" class="card info-card green-card">
                                 <div class="card-body">
                                     <h5 class="card-title">Admin</h5>
                                     <div class="d-flex align-items-center">

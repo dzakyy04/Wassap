@@ -1,15 +1,17 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminArticleController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MyArticlesController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\MyArticlesController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\AdminArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,10 +58,18 @@ Route::middleware('auth')->group(function () {
     // Upload gambar dari ckeditor
     Route::post('upload', [MyArticlesController::class, 'uploadImage'])->name('ckeditor.upload');
 
-    // Admin
+    // Admin Berita
     Route::get('/dashboard/admin/berita', [AdminArticleController::class, 'index'])->name('admin.article');
     Route::get('/dashboard/admin/{slug}/edit-berita', [AdminArticleController::class, 'edit'])->name('admin.edit-article');
     Route::post('/dashboard/admin/{slug}/edit-berita', [AdminArticleController::class, 'update'])->name('admin.update-article');
+
+    // Admin User
+    Route::get('/dashboard/admin/pengguna', [UserController::class, 'index'])->name('admin.user');
+
+    // Admin admin
+    Route::get('/dashboard/admin/admin', [AdminController::class, 'index'])->name('admin.admin');
+    Route::get('/dashboard/admin/admin/tambah-admin', [AdminController::class, 'create'])->name('admin.create-admin');
+    Route::post('/dashboard/admin/admin/tambah-admin', [AdminController::class, 'store'])->name('admin.store-admin');
 });
 
 // Berita
