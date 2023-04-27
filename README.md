@@ -1,10 +1,21 @@
 # WASSAP
 
-Website Portal Berita
+Website Portal Berita, Website ini dibuat dengan :
+
+1. PHP
+2. Laravel
+3. Livewire
+4. Laravel UI
+5. MySQL
+6. Bootstrap
+7. SwiperJs
+8. ChartJs
+9. NiceAdmin Template Dashboard
 
 ## Kebutuhan
 
 Untuk menjalankan website ini, dibutuhkan :
+
 1. PHP versi 8.1 - 8.2
 2. Composer
 3. NodeJs
