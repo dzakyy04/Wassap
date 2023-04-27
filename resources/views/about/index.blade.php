@@ -95,7 +95,7 @@
                             <h4>Bima Aryadinata</h4>
                             <span>09021282126035</span>
 
-                            <p>Hujan msih air, Gluduk masih bentar, Tetapi cintaku padamu tak akan pernah pudar, kumaha pakele? WELL☝️🤘</p>
+                            <p>Hujan masih air, Gluduk masih bentar, Tetapi cintaku padamu tak akan pernah pudar, kumaha pakele? WELL☝️🤘</p>
                             <div class="social">
                                 <a href="https://www.instagram.com/bima__a/"><i class="bi bi-instagram"></i></a>
                                 <a href="https://www.linkedin.com/in/bima-aryadinata-43a392224/"><i class="bi bi-linkedin"></i></a>
