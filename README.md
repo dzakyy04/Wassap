@@ -22,7 +22,7 @@ Untuk menjalankan website ini, dibutuhkan :
 4. MySQL
 5. Koneksi internet
 
-## Installasi
+## Instalasi
 
 Clone Repositori
 
